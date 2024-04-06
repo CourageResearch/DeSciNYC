@@ -88,7 +88,7 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    src="/images/descinyc-logo.png"
                     alt="DeSciNYC Logo"
                   />
                 </div>
