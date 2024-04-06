@@ -7,28 +7,28 @@ import links from '../links.json'
 const navigation = {
     solutions: [
         { name: 'Marketing', href: '#' },
-        { name: 'Analytics', href: '#' },
-        { name: 'Commerce', href: '#' },
-        { name: 'Insights', href: '#' },
+        // { name: 'Analytics', href: '#' },
+        // { name: 'Commerce', href: '#' },
+        // { name: 'Insights', href: '#' },
     ],
     support: [
         { name: 'Pricing', href: '#' },
-        { name: 'Documentation', href: '#' },
-        { name: 'Guides', href: '#' },
-        { name: 'API Status', href: '#' },
+        // { name: 'Documentation', href: '#' },
+        // { name: 'Guides', href: '#' },
+        // { name: 'API Status', href: '#' },
     ],
     company: [
         { name: 'About', href: '#' },
-        { name: 'Blog', href: '#' },
-        { name: 'Jobs', href: '#' },
-        { name: 'Press', href: '#' },
-        { name: 'Partners', href: '#' },
+        // { name: 'Blog', href: '#' },
+        // { name: 'Jobs', href: '#' },
+        // { name: 'Press', href: '#' },
+        // { name: 'Partners', href: '#' },
     ],
-    legal: [
-        { name: 'Claim', href: '#' },
-        { name: 'Privacy', href: '#' },
-        { name: 'Terms', href: '#' },
-    ],
+    // legal: [
+    //     { name: 'Claim', href: '#' },
+    //     { name: 'Privacy', href: '#' },
+    //     { name: 'Terms', href: '#' },
+    // ],
     social: [
         // {
         //     name: 'Facebook',
@@ -149,7 +149,7 @@ export default function Footer() {
                                     ))}
                                 </ul>
                             </div>
-                            <div className="mt-10 md:mt-0">
+                            {/* <div className="mt-10 md:mt-0">
                                 <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
                                 <ul role="list" className="mt-6 space-y-4">
                                     {navigation.legal.map((item) => (
@@ -160,7 +160,7 @@ export default function Footer() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="mt-10 xl:mt-0">
@@ -213,7 +213,8 @@ export default function Footer() {
                         ))}
                     </div>
                     <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
-                        &copy; 2020 Your Company, Inc. All rights reserved.
+                        {/* &copy; 2024 Your Company, Inc. All rights reserved. */}
+                            Stay curious
                     </p>
                 </div>
             </div>
