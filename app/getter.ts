@@ -18,5 +18,5 @@ export const getLumaEvent = async (
     };
 
     const lumaEvent = await axios.request(options)
-    return lumaEvent.data as LumaEvent;
+    return lumaEvent.data.event as LumaEvent;
 }

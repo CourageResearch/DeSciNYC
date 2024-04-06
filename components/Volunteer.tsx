@@ -1,6 +1,6 @@
 export default function Volunteer() {
   return (
-    <div className="overflow-hidden bg-white py-32" id="volunteer">
+    <div className="overflow-hidden py-32" id="volunteer">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
@@ -17,7 +17,8 @@ export default function Volunteer() {
             </p>
             <div className="mt-10 flex">
               <a
-                href="#"
+                target="_blank"
+                href="https://forms.gle/pSxQ5hoQybe2r7bDA"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Join our team <span aria-hidden="true">&rarr;</span>

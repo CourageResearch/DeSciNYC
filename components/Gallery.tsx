@@ -1,6 +1,10 @@
+import links from '../links.json'
+
+
 export default function Gallery() {
+
   return (
-    <div className="overflow-hidden bg-white py-32" id="gallery">
+    <div className="overflow-hidden py-32" id="gallery">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
@@ -8,19 +12,19 @@ export default function Gallery() {
               Gallery
             </h2>
             <p className="mt-6 text-xl leading-8 text-gray-600">
-              Gallery Gallery Gallery Gallery
+              Pics pics pics pics
             </p>
             <p className="mt-6 text-base leading-7 text-gray-600">
               {/* benefits of volenttering */}
-              When you volunteer, you are helping to make a difference in the lives of others. You are also helping to make a difference in your own life. Volunteering can help you to learn new skills, meet new people, and feel good about yourself. It can also help you to build your resume and gain valuable work experience. Volunteering can be a great way to give back to your community and make a positive impact on the world.
+              Pics pics pics pics pics pics pics pics pics 
 
             </p>
             <div className="mt-10 flex">
               <a
-                href="#"
+                href={links.instagram}
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Join our team <span aria-hidden="true">&rarr;</span>
+                More on Instagram <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>

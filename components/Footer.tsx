@@ -1,4 +1,7 @@
+'use client'
+
 import { JSX, SVGProps } from "react"
+import { useForm, ValidationError } from '@formspree/react';
 
 const navigation = {
     solutions: [
@@ -91,6 +94,13 @@ const navigation = {
 }
 
 export default function Footer() {
+
+    const [state, handleSubmit] = useForm("xdoqpkjo");
+    if (state.succeeded) {
+        return <h1>Thanks for joining!</h1>;
+    }
+
+
     return (
         <footer className="bg-white" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">
@@ -155,9 +165,12 @@ export default function Footer() {
                     <div className="mt-10 xl:mt-0">
                         <h3 className="text-sm font-semibold leading-6 text-gray-900">Subscribe to our newsletter</h3>
                         <p className="mt-2 text-sm leading-6 text-gray-600">
-                            The latest news, articles, and resources, sent to your inbox weekly.
+                            The latest news, articles, and resources, sent to your inbox montly.
                         </p>
-                        <form className="mt-6 sm:flex sm:max-w-md">
+                        <form className="mt-6 sm:flex sm:max-w-md"
+
+                            onSubmit={handleSubmit}
+                        >
                             <label htmlFor="email-address" className="sr-only">
                                 Email address
                             </label>
@@ -170,8 +183,16 @@ export default function Footer() {
                                 className="w-full min-w-0 appearance-none rounded-md border-0 bg-white px-3 py-1.5 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:w-64 sm:text-sm sm:leading-6 xl:w-full"
                                 placeholder="Enter your email"
                             />
+
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
+
                             <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                                 <button
+                                    disabled={state.submitting}
                                     type="submit"
                                     className="flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >

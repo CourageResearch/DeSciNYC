@@ -18,10 +18,12 @@ export default async function HomePage() {
 
   const nextEvent = db[db.length - 1];
 
+  console.log(nextEvent)
+
   const lumaEvent = await getLumaEvent({ event_id: nextEvent.luma_id });
 
   return (
-    <>
+    <div className='bg-green-600'>
       <Hero 
         luma_url={nextEvent.luma_url}
       />
@@ -33,7 +35,7 @@ export default async function HomePage() {
       <Calendar />
       <Telegram />
       <Volunteer />
-      <ContactUs />
-    </>
+      {/* <ContactUs /> */}
+    </div>
   );
 }

@@ -51,16 +51,16 @@ const navItems = [
   //   "href": "#sponsor",
   //   "current": false
   // },
-  {
-    "name": "Shop",
-    "href": "#shop",
-    "current": false
-  },
-  {
-    "name": "Contact Us",
-    "href": "#contact-us",
-    "current": false
-  },
+  // {
+  //   "name": "Shop",
+  //   "href": "#shop",
+  //   "current": false
+  // },
+  // {
+  //   "name": "Contact Us",
+  //   "href": "#contact-us",
+  //   "current": false
+  // },
   // {
   //   "name": "Donate",
   //   "href": "#donate",
