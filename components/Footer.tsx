@@ -218,7 +218,12 @@ export default function Footer() {
                 <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
                     <div className="flex space-x-6 md:order-2">
                         {navigation.social.map((item) => (
-                            <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-500">
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="text-gray-900 hover:text-gray-500"
+                                target="_blank"
+                            >
                                 <span className="sr-only">{item.name}</span>
                                 <item.icon className="h-6 w-6" aria-hidden="true" />
                             </a>
