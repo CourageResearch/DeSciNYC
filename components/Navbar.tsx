@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 const navItems = [
   // {
   //   "name": "Home",
@@ -91,10 +93,13 @@ export default function Navbar() {
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
                   <a href="/">
-                    <img
+                    <Image
+                      // todo: replace with actual logo
                       className="h-8 w-auto"
                       src="/images/descinyc-logo.png"
                       alt="DeSciNYC Logo"
+                      width={378}
+                      height={378}
                     />
                   </a>
                 </div>

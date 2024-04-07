@@ -1,21 +1,15 @@
-import Videos from "@/components/Videos";
+import PastEvents from "@/components/PastEvents";
 import NextEvent from "@/components/NextEvent";
 import MailingList from '@/components/MailingList';
 import ContactUs from '@/components/ContactUs';
-import Hero2 from '@/components/Hero2';
+import Hero from '@/components/Hero';
 import StayInTouch from '@/components/FindOutMore';
 import Shop from '@/components/Shop';
 
 import { getLumaEvent } from './getter';
 import db from '../db.json';
 
-// import Volunteer from "@/components/Volunteer";
 // import Gallery from "@/components/Gallery";
-// import Hero from "@/components/Hero";
-// import { LumaEvent } from '@/types/interfaces';
-// import PastEvents from '@/components/PastEvents';
-// import Calendar from '@/components/Calendar';
-// import Telegram from '@/components/Telegram';
 
 export default async function HomePage() {
 
@@ -24,21 +18,17 @@ export default async function HomePage() {
 
   return (
     <div className='bg-green-300'>
-      <Hero2
+      <Hero
         luma_url={nextEvent.luma_url}
       />
       <NextEvent lumaEvent={lumaEvent} />
-      {/* <NextEvent lumaEvent={lumaEvent} /> */}
-      <Videos/>
-      {/* <Gallery /> */}
-      {/* <PastEvents /> */}
-      {/* <Calendar /> */}
-      {/* <Telegram /> */}
-      {/* <Volunteer /> */}
+      <PastEvents/>
       <StayInTouch />
       <MailingList />
       <Shop />
       <ContactUs />
+
+      {/* <Gallery /> */}
     </div>
   );
 }

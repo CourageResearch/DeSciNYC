@@ -1,4 +1,5 @@
 import db from '../db.json';
+import Image from 'next/image'
 
 export default function PastEvents() {
     return (
@@ -12,9 +13,14 @@ export default function PastEvents() {
                                 <div key={event.yt_uuid} className="group relative">
                                     <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
                                         <a href={`https://www.youtube.com/watch?v=${event.yt_uuid}`} target="_blank" rel="noopener noreferrer">
-                                            <img
+                                            <Image
+                                                width={1269/2}
+                                                height={714/2}
+
                                                 src={`https://i3.ytimg.com/vi/${event.yt_uuid}/maxresdefault.jpg`}
+
                                                 className="h-full w-full object-cover object-center"
+                                                alt=""
                                             />
                                         </a>
                                     </div>

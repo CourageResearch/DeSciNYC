@@ -5,6 +5,7 @@ import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import links from '../links.json'
+import Image from 'next/image'
 
 const product = {
   name: 'DeSciNYC T-Shirt',
@@ -22,7 +23,7 @@ const product = {
       name: 'Front view',
       src: links.t_shirt_url_back,
       alt: '',
-    },  ],
+    },],
   colors: [
     { name: 'Washed Black', bgColor: 'bg-gray-700', selectedColor: 'ring-gray-700' },
     // { name: 'White', bgColor: 'bg-white', selectedColor: 'ring-gray-400' },
@@ -73,7 +74,13 @@ export default function Example() {
                       <>
                         <span className="sr-only">{image.name}</span>
                         <span className="absolute inset-0 overflow-hidden rounded-md">
-                          <img src={image.src} alt="" className="h-full w-full object-cover object-center" />
+                          <Image
+                            src={image.src}
+                            alt=""
+                            className="h-full w-full object-cover object-center"
+                            width={714}
+                            height={714}
+                          />
                         </span>
                         <span
                           className={classNames(
@@ -92,10 +99,12 @@ export default function Example() {
             <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
               {product.images.map((image) => (
                 <Tab.Panel key={image.id}>
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
                     className="h-full w-full object-cover object-center sm:rounded-lg"
+                    width={714}
+                    height={714}
                   />
                 </Tab.Panel>
               ))}
