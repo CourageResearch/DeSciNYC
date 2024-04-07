@@ -21,6 +21,9 @@ export const metadata: Metadata = {
       type: "image/png"
     }
   ],
+};
+
+export const viewport = {
   themeColor: "#86efac",
 };
 
