@@ -59,19 +59,19 @@ export default function MailingList() {
           </div>
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
             <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                {/* <CalendarDaysIcon className="h-6 w-6 text-gray-900" aria-hidden="true" /> */}
-              </div>
-              <dt className="mt-4 font-semibold text-gray-900">Find out about events</dt>
+              {/* <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                <CalendarDaysIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
+              </div> */}
+              <dt className="font-semibold text-gray-900">Find out about events</dt>
               <dd className="mt-2 leading-7 text-gray-900">
                 Find out about upcoming events and get the latest news about the decentralized science community in NYC.
               </dd>
             </div>
             <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                {/* <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" /> */}
-              </div>
-              <dt className="mt-4 font-semibold text-gray-900">No spam</dt>
+              {/* <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+                <HandRaisedIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
+              </div> */}
+              <dt className="font-semibold text-gray-900">No spam</dt>
               <dd className="mt-2 leading-7 text-gray-900">
                 No spam and we will never share your email address with anyone else.
               </dd>
