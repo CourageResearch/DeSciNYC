@@ -4,7 +4,7 @@ export default function Videos() {
     return (
         <div className="" id='videos'>
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900">Videos from DeSciNYC</h2>
+                <h2 className="text-2xl font-bold tracking-tight text-gray-900">Past Events</h2>
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-12">
                     {db.slice().reverse().map((event) => {
                         if (event.yt_uuid !== "") {
@@ -22,19 +22,24 @@ export default function Videos() {
                                         <div>
                                             <h3 className="text-sm">
                                                 <a href={`https://www.youtube.com/watch?v=${event.yt_uuid}`} target="_blank" rel="noopener noreferrer">
-                                                    <span aria-hidden="true" className="absolute inset-0" />
                                                     {event.title}
                                                 </a>
                                             </h3>
                                             <h3 className="text-sm">
                                                 <a href={`https://www.youtube.com/watch?v=${event.yt_uuid}`} target="_blank" rel="noopener noreferrer">
-                                                    <span aria-hidden="true" className="absolute inset-0" />
                                                     {event.speaker}
                                                 </a>
                                             </h3>
                                         </div>
                                         <p className="text-sm font-medium text-gray-900">#{event.id}</p>
                                     </div>
+                                    <h3 className="text-sm mt-2 text-gray-500">
+                                        <a href={event.luma_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Luma Event
+                                        </a>
+                                    </h3>
                                 </div>
                             )
                         }

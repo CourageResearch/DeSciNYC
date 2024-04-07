@@ -28,12 +28,12 @@ export default async function HomePage() {
       <NextEvent lumaEvent={lumaEvent} />
       <Videos/>
       {/* <Gallery /> */}
-      <PastEvents />
+      {/* <PastEvents /> */}
       {/* <Calendar /> */}
       {/* <Telegram /> */}
       {/* <Volunteer /> */}
       <StayInTouch />
-      {/* <MailingList /> */}
+      <MailingList />
       <ContactUs />
     </div>
   );
