@@ -31,8 +31,13 @@ export default function Hero(
                             Welcome to Decentralized Science NYC.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-900">
-                            A monthly meetup for the decentralized science community in NYC to learn
-                            about the latest in decentralized science, share projects, and eat.
+                            {/* A monthly meetup for the decentralized science community in NYC to learn
+                            about the latest in decentralized science, share projects, and eat. */}
+
+                            A monthly NYC meetup for science enthusiasts to learn, share projects, and socialize.
+
+                            {/* Join us for a monthly IRL meetup in NYC about decentralized science. */}
+
                         </p>
                         <div className="mt-10 flex items-center gap-x-6">
                             <a
