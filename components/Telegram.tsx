@@ -1,3 +1,5 @@
+import links from '../links.json'
+
 export default function Telegram() {
   return (
     <div className="" id="telegram">
@@ -10,7 +12,7 @@ export default function Telegram() {
         <div className="mt-10 flex items-center gap-x-6">
           <a
             target="_blank"
-            href="https://t.me/+uAS2PtxCoco0MWUx"
+            href={links.telegram}
             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Join Telegram Group Chat

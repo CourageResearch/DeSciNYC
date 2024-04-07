@@ -12,30 +12,29 @@ import Telegram from '@/components/Telegram';
 import ContactUs from '@/components/ContactUs';
 import db from '../db.json';
 import { getLumaEvent } from './getter';
-
+import Hero2 from '@/components/Hero2';
+import StayInTouch from '@/components/StayInTouch';
 
 export default async function HomePage() {
 
   const nextEvent = db[db.length - 1];
-
-  console.log(nextEvent)
-
   const lumaEvent = await getLumaEvent({ event_id: nextEvent.luma_id });
 
   return (
-    <div className='bg-green-600'>
-      <Hero 
+    <div className='bg-green-300'>
+      <Hero2
         luma_url={nextEvent.luma_url}
       />
       <NextEvent lumaEvent={lumaEvent} />
       <Videos/>
-      <Gallery />
+      {/* <Gallery /> */}
       <PastEvents />
-      <MailingList />
-      <Calendar />
-      <Telegram />
-      <Volunteer />
-      {/* <ContactUs /> */}
+      {/* <Calendar /> */}
+      {/* <Telegram /> */}
+      {/* <Volunteer /> */}
+      <StayInTouch />
+      {/* <MailingList /> */}
+      <ContactUs />
     </div>
   );
 }

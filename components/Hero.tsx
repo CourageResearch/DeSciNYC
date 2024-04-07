@@ -32,7 +32,7 @@ export default function Hero(
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-gray-600">
                         A monthly meetup for the decentralized science community in NYC to learn 
-                        about the latest in decentralized science, share projects, and eat pizza.
+                        about the latest in decentralized science, share projects, and eat.
                     </p>
                     <div className="mt-10 flex items-center gap-x-6">
                         <a

@@ -1,6 +1,5 @@
 import links from '../links.json'
 
-
 export default function Gallery() {
 
   return (
@@ -24,7 +23,7 @@ export default function Gallery() {
                 href={links.instagram}
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                More on Instagram <span aria-hidden="true">&rarr;</span>
+                See more Instagram <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
