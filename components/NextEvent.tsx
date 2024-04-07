@@ -26,9 +26,6 @@ const features = [
 export default function NextEvent(
     { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
-
-    console.log(lumaEvent)
-
     return (
         <div className="overflow-hidden bg-green-400 py-24 sm:py-32" id='next-event'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">

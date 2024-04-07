@@ -144,7 +144,7 @@ export default function Example() {
               <h3 className="sr-only">Description</h3>
 
               <div
-                className="space-y-6 text-base text-gray-700"
+                className="space-y-6 text-base text-gray-900"
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
             </div>
@@ -152,7 +152,7 @@ export default function Example() {
             <div className="mt-6">
               {/* Colors */}
               <div>
-                <h3 className="text-sm text-gray-600">Color</h3>
+                <h3 className="text-sm text-gray-900">Color</h3>
 
                 <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-2">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
@@ -187,15 +187,16 @@ export default function Example() {
               </div>
 
               <div className="mt-10 flex">
-                <button
-                  type="submit"
+                <a
                   className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent 
                   bg-green-600 px-8 py-3 text-base font-medium text-white hover:bg-green-700 
                   focus:outline-none focus:ring-2 focus:ring-green-500 
                   focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                  href={links.shop_url}
+                  target="_blank"
                 >
                   Order
-                </button>
+                </a>
 
                 {/* <button
                   type="button"
