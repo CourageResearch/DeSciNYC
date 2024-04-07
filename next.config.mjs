@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            'images.unsplash.com',
-            'i3.ytimg.com'
+        remotePatterns: [
+            {
+                hostname: 'images.unsplash.com'
+            },
+            {
+                hostname: 'i3.ytimg.com'
+            }
         ],
     },
 };

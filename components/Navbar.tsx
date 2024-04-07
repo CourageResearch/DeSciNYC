@@ -94,9 +94,8 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <a href="/">
                     <Image
-                      // todo: replace with actual logo
                       className="h-8 w-auto"
-                      src="/images/descinyc-logo.png"
+                      src="/images/logo.svg"
                       alt="DeSciNYC Logo"
                       width={378}
                       height={378}

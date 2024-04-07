@@ -149,7 +149,7 @@ export default function Example() {
               />
             </div>
 
-            <form className="mt-6">
+            <div className="mt-6">
               {/* Colors */}
               <div>
                 <h3 className="text-sm text-gray-600">Color</h3>
@@ -205,7 +205,7 @@ export default function Example() {
                   <span className="sr-only">Add to favorites</span>
                 </button> */}
               </div>
-            </form>
+            </div>
 
             <section aria-labelledby="details-heading" className="mt-12">
               <h2 id="details-heading" className="sr-only">
