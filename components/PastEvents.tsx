@@ -10,7 +10,7 @@ export default function PastEvents() {
                     {db.slice().reverse().map((event) => {
                         if (event.yt_uuid !== "") {
                             return (
-                                <div key={event.yt_uuid} className="group relative">
+                                <div key={event.yt_uuid} className="group relative" id={event.id + ""}>
                                     <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
                                         <a href={`https://www.youtube.com/watch?v=${event.yt_uuid}`} target="_blank" rel="noopener noreferrer">
                                             <Image
