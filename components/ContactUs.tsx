@@ -1,29 +1,16 @@
 'use client'
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import { useState } from 'react'
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { Switch } from '@headlessui/react'
+import { useForm, ValidationError } from '@formspree/react';
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+
+import { useState } from 'react'
 
 export default function ContactUs() {
   const [agreed, setAgreed] = useState(false)
+  const [state, handleSubmit] = useForm("xdoqpkjo");
+  if (state.succeeded) {
+    return <p>Thanks for joining!</p>;
+  }
 
   return (
     <div className="relative isolate">
@@ -32,8 +19,7 @@ export default function ContactUs() {
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">Get in touch</h2>
             <p className="mt-6 text-lg leading-8 text-gray-900">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
-              integer elementum id sem. Arcu sed malesuada et magna.
+              We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
             </p>
             {/* <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
               <div className="flex gap-x-4">
@@ -72,7 +58,11 @@ export default function ContactUs() {
             </dl> */}
           </div>
         </div>
-        <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+        <form onSubmit={handleSubmit}
+          className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+        >
+
+          {/* <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"> */}
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -90,11 +80,18 @@ export default function ContactUs() {
                     placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
                     focus:ring-green-600 sm:text-sm sm:leading-6"
                   />
+
+                  <ValidationError
+                    prefix="Full Name"
+                    field="full-name"
+                    errors={state.errors}
+                  />
+
                 </div>
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                  Email
+                  Email *
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -104,6 +101,13 @@ export default function ContactUs() {
                     autoComplete="email"
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                  />
+
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -118,11 +122,18 @@ export default function ContactUs() {
                     autoComplete="tel"
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+
+                  <ValidationError
+                    prefix="Phone Number"
+                    field="phone-number"
+                    errors={state.errors}
+                  />
+
                 </div>
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                  Message
+                  Message *
                 </label>
                 <div className="mt-2.5">
                   <textarea
@@ -132,6 +143,13 @@ export default function ContactUs() {
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={''}
                   />
+
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                  />
+
                 </div>
               </div>
             </div>
