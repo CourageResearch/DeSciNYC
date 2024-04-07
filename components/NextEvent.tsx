@@ -26,6 +26,9 @@ const features = [
 export default function NextEvent(
     { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
+
+    console.log(lumaEvent)
+
     return (
         <div className="overflow-hidden bg-green-400 py-24 sm:py-32" id='next-event'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -39,7 +42,7 @@ export default function NextEvent(
                                 {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATETIME_FULL)} in NYC
                             </h2>
                             <p className="mt-6 text-lg leading-8 text-gray-900">
-                                {lumaEvent.description.split('More chatting\n')[0].split('\n').map((line, i) => (
+                                {lumaEvent.description.split('More chatting\n', 1)[0].concat('More chatting\n').split('\n').map((line, i) => (
                                     <span key={i}>
                                         {line}
                                         <br />
