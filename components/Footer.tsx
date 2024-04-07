@@ -108,10 +108,7 @@ const navigation = {
 
 export default function Footer() {
 
-    const [state, handleSubmit] = useForm("xdoqpkjo");
-    if (state.succeeded) {
-        return <h1>Thanks for joining!</h1>;
-    }
+    const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || '');
 
     return (
         <footer className="bg-green-400" aria-labelledby="footer-heading">
@@ -173,8 +170,6 @@ export default function Footer() {
                                 </ul>
                             </div>
                         </div>
-
-
                     </div>
 
                     <div className="mt-10 xl:mt-0">
@@ -209,12 +204,15 @@ export default function Footer() {
                                 <button
                                     disabled={state.submitting}
                                     type="submit"
-                                    className="flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    className="rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
+                                    shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 
+                                    focus-visible:outline-offset-2 focus-visible:outline-green-800"
                                 >
                                     Subscribe
                                 </button>
                             </div>
                         </form>
+                        {state.succeeded && <p className='text-gray-900'>Thanks for subscribing!</p>}
                     </div>
                 </div>
                 <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
@@ -227,7 +225,6 @@ export default function Footer() {
                         ))}
                     </div>
                     <p className="mt-8 text-xs leading-5 text-gray-900 md:order-1 md:mt-0">
-                        {/* &copy; 2024 Your Company, Inc. All rights reserved. */}
                         Stay curious.
                     </p>
                 </div>

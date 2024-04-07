@@ -27,7 +27,7 @@ export default function Hero(
                             </div> */}
                         </div>
                         <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
-                            Decentralized Science NYC
+                            Welcome to Decentralized Science NYC.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-900">
                             A monthly meetup for the decentralized science community in NYC to learn
@@ -35,10 +35,12 @@ export default function Hero(
                         </p>
                         <div className="mt-10 flex items-center gap-x-6">
                             <a
-                                href={luma_url} // assuming nextEvent has a url property
+                                href={luma_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
+                                shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 
+                                focus-visible:outline-offset-2 focus-visible:outline-green-800"
                             >
                                 RSVP to Next Event
                             </a>

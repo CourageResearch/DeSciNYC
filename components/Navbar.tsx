@@ -1,24 +1,25 @@
 'use client'
 
 const navItems = [
-  {
-    "name": "Home",
-    "href": "/",
-    "current": false
-  },
+  // {
+  //   "name": "Home",
+  //   "href": "/",
+  //   "current": false
+  // },
+
+  // {
+  //   "name": "Past Events",
+  //   "href": "#past-events",
+  //   "current": false
+  // },
+  // {
+  //   "name": "Gallery",
+  //   "href": "#gallery",
+  //   "current": false
+  // },
   {
     "name": "Next Event",
     "href": "#next-event",
-    "current": false
-  },
-  {
-    "name": "Videos",
-    "href": "#videos",
-    "current": false
-  },
-  {
-    "name": "Gallery",
-    "href": "#gallery",
     "current": false
   },
   {
@@ -26,17 +27,16 @@ const navItems = [
     "href": "#past-events",
     "current": false
   },
-  // {
-  //   "name": "Calendar",
-  //   "href": "#calendar",
-  //   "current": false
-  // },
+  {
+    "name": "Find Out More",
+    "href": "#find-out-more",
+    "current": false
+  },
   {
     "name": "Mailing List",
     "href": "#mailing-list",
     "current": false
   },
-
   // {
   //   "name": "Telegram Group",
   //   "href": "#telegram",
@@ -57,11 +57,16 @@ const navItems = [
   //   "href": "#shop",
   //   "current": false
   // },
-  // {
-  //   "name": "Contact Us",
-  //   "href": "#contact-us",
-  //   "current": false
-  // },
+  {
+    "name": "Shop",
+    "href": "#shop",
+    "current": false
+  },
+  {
+    "name": "Contact Us",
+    "href": "#contact-us",
+    "current": false
+  },
   // {
   //   "name": "Donate",
   //   "href": "#donate",

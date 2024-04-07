@@ -1,19 +1,21 @@
-import { GetServerSideProps } from 'next';
-import Volunteer from "@/components/Volunteer";
-import Gallery from "@/components/Gallery";
-import Hero from "@/components/Hero";
 import Videos from "@/components/Videos";
 import NextEvent from "@/components/NextEvent";
-import { LumaEvent } from '@/types/interfaces';
 import MailingList from '@/components/MailingList';
-import PastEvents from '@/components/PastEvents';
-import Calendar from '@/components/Calendar';
-import Telegram from '@/components/Telegram';
 import ContactUs from '@/components/ContactUs';
-import db from '../db.json';
-import { getLumaEvent } from './getter';
 import Hero2 from '@/components/Hero2';
-import StayInTouch from '@/components/StayInTouch';
+import StayInTouch from '@/components/FindOutMore';
+import Shop from '@/components/Shop';
+
+import { getLumaEvent } from './getter';
+import db from '../db.json';
+
+// import Volunteer from "@/components/Volunteer";
+// import Gallery from "@/components/Gallery";
+// import Hero from "@/components/Hero";
+// import { LumaEvent } from '@/types/interfaces';
+// import PastEvents from '@/components/PastEvents';
+// import Calendar from '@/components/Calendar';
+// import Telegram from '@/components/Telegram';
 
 export default async function HomePage() {
 
@@ -26,6 +28,7 @@ export default async function HomePage() {
         luma_url={nextEvent.luma_url}
       />
       <NextEvent lumaEvent={lumaEvent} />
+      {/* <NextEvent lumaEvent={lumaEvent} /> */}
       <Videos/>
       {/* <Gallery /> */}
       {/* <PastEvents /> */}
@@ -34,6 +37,7 @@ export default async function HomePage() {
       {/* <Volunteer /> */}
       <StayInTouch />
       <MailingList />
+      <Shop />
       <ContactUs />
     </div>
   );
