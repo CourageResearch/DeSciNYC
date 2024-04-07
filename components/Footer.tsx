@@ -113,7 +113,6 @@ export default function Footer() {
         return <h1>Thanks for joining!</h1>;
     }
 
-
     return (
         <footer className="bg-green-400" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">
@@ -175,7 +174,7 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        
+
                     </div>
 
                     <div className="mt-10 xl:mt-0">
@@ -221,13 +220,13 @@ export default function Footer() {
                 <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
                     <div className="flex space-x-6 md:order-2">
                         {navigation.social.map((item) => (
-                            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                            <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-500">
                                 <span className="sr-only">{item.name}</span>
                                 <item.icon className="h-6 w-6" aria-hidden="true" />
                             </a>
                         ))}
                     </div>
-                    <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
+                    <p className="mt-8 text-xs leading-5 text-gray-900 md:order-1 md:mt-0">
                         {/* &copy; 2024 Your Company, Inc. All rights reserved. */}
                         Stay curious.
                     </p>
