@@ -8,7 +8,7 @@ const navigation = {
     events: [
         { name: 'Next Event', href: '#next-event' },
         { name: 'Past Events', href: '#past-events' },
-        { name: 'Videos', href: '#videos' },
+        // { name: 'Videos', href: '#videos' },
     ],
     // media: [
     //     { name: 'Pictures', href: '#pictures' },
@@ -21,13 +21,14 @@ const navigation = {
         { name: 'Volunteer', href: links.volunteer_url },
     ],
     support: [
-        { name: 'Donate', href: '#donate' },
-        { name: 'Sponsorship', href: '#sponsorship' },
+        { name: 'Donate', href: links.donate_url },
+        { name: 'Sponsorship', href: links.sponsor_url },
+        { name: 'Shop', href: links.shop_url },
     ],
-    legal: [
-        { name: 'Privacy', href: '/privacy-policy' },
-        { name: 'Terms', href: '/terms' },
-    ],
+    // legal: [
+    //     { name: 'Privacy', href: '/privacy-policy' },
+    //     { name: 'Terms', href: '/terms' },
+    // ],
     social: [
         // {
         //     name: 'Facebook',
@@ -160,7 +161,7 @@ export default function Footer() {
                             <div className="mt-10 md:mt-0">
                                 <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
                                 <ul role="list" className="mt-6 space-y-4">
-                                    {navigation.legal.map((item) => (
+                                    {navigation.social.map((item) => (
                                         <li key={item.name}>
                                             <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
                                                 {item.name}
