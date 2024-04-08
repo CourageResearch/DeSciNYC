@@ -25,13 +25,13 @@ const navItems = [
     "current": false
   },
   {
-    "name": "Past Events",
-    "href": "#past-events",
+    "name": "Find Out More",
+    "href": "#find-out-more",
     "current": false
   },
   {
-    "name": "Find Out More",
-    "href": "#find-out-more",
+    "name": "Past Events",
+    "href": "#past-events",
     "current": false
   },
   {

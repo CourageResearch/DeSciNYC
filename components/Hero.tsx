@@ -1,14 +1,11 @@
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import { DateTime } from 'luxon';
+import { LumaEvent } from '@/types/interfaces';
 
 export default function Hero(
-    {
-        luma_url
-    }: {
-        luma_url: string
-    }
+    { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
-
 
     return (
         <div className="relative">
@@ -48,14 +45,16 @@ export default function Hero(
 
                         <div className="mt-10 flex items-center gap-x-6">
                             <a
-                                href={luma_url}
+                                href={lumaEvent.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
                                 shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 
                                 focus-visible:outline-offset-2 focus-visible:outline-green-800"
                             >
-                                RSVP to Next Event
+
+                                RSVP to Next Event on {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATE_FULL)}
+
                             </a>
                             <a href="#mailing-list" className="text-sm font-semibold leading-6 text-gray-900">
                                 Join the mailing list <span aria-hidden="true">→</span>
