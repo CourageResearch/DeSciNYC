@@ -1,31 +1,37 @@
+'use client'
+
+import { useQRCode } from 'next-qrcode';
 import { LumaEvent } from '../types/interfaces'
 import { DateTime } from 'luxon';
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 
-const features = [
-    {
-        name: 'Push to deploy.',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: CloudArrowUpIcon,
-    },
-    {
-        name: 'SSL certificates.',
-        description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-        icon: LockClosedIcon,
-    },
-    {
-        name: 'Database backups.',
-        description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-        icon: ServerIcon,
-    },
-]
+// const features = [
+//     {
+//         name: 'Push to deploy.',
+//         description:
+//             'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//         icon: CloudArrowUpIcon,
+//     },
+//     {
+//         name: 'SSL certificates.',
+//         description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+//         icon: LockClosedIcon,
+//     },
+//     {
+//         name: 'Database backups.',
+//         description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+//         icon: ServerIcon,
+//     },
+// ]
 
 
 export default function NextEvent(
     { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
+
+    const { Canvas } = useQRCode();
+
     return (
         <div className="overflow-hidden bg-green-400 py-24 sm:py-32" id='next-event'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -67,14 +73,28 @@ export default function NextEvent(
                             hover:bg-green-700
                             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
                             focus-visible:outline-white
-                            mt-10
                             "
-                        // hover:bg-green-900/20 
                         >
                             RSVP
                         </a>
 
+                        <div className="mt-10">
+                            <Canvas
+                                text={lumaEvent.url}
+                                options={{
+                                    errorCorrectionLevel: 'M',
+                                    margin: 0,
+                                    scale: 3,
+                                    width: 150,
+                                    color: {
+                                        dark: '#14532d',
+                                        light: '#4ade80',
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
+
                     <Image
                         src=
                         "https://images.unsplash.com/photo-1576670159375-8beb7c963ead?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

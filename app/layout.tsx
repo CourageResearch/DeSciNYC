@@ -9,6 +9,17 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "DeSciNYC - Decentlized Scinece NYC",
   description: "We are a community of scientists, engineers, and enthusiasts who are passionate about decentralized science.",
+  metadataBase: new URL("https://localhost:3000/"),
+  openGraph: {
+    images: [
+      {
+        url: "/images/opengraph-image.png",
+        width: 1200,
+        height: 630
+      },
+    ],
+  },
+
   icons: [
     {
       url: "/android-chrome-192x192.png",
@@ -35,10 +46,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta property="og:image" content="<generated>" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta property="og:image:width" content="<generated>" />
-        <meta property="og:image:height" content="<generated>" />
       </head>
       <body className={inter.className}>
         <Navbar />

@@ -8,6 +8,8 @@ export default function Hero(
         luma_url: string
     }
 ) {
+
+
     return (
         <div className="relative">
             <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
@@ -39,6 +41,11 @@ export default function Hero(
                             {/* Join us for a monthly IRL meetup in NYC about decentralized science. */}
 
                         </p>
+
+                        <p className="mt-6 text-lg leading-8 text-gray-900">
+                            Science is for everyone, and we try to make it accessible to all.
+                        </p>
+
                         <div className="mt-10 flex items-center gap-x-6">
                             <a
                                 href={luma_url}
