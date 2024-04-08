@@ -26,7 +26,7 @@ export default function PastEvents() {
                                     </div>
                                     <div className="mt-4 flex justify-between text-gray-900">
                                         <div>
-                                            <h3 className="text-sm">
+                                            <h3 className="text-sm font-medium">
                                                 <a href={`https://www.youtube.com/watch?v=${event.yt_uuid}`} target="_blank" rel="noopener noreferrer">
                                                     {event.title}
                                                 </a>
