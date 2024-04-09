@@ -1,11 +1,9 @@
 'use client'
 
-import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { useForm, ValidationError } from '@formspree/react';
-
 export default function MailingList() {
 
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || '');
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || '')
 
   return (
     <div className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32 bg-green-400" id='mailing-list'>

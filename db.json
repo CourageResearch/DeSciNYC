@@ -5,8 +5,7 @@
         "speaker": "Nathan Wilson",
         "yt_uuid": "QVZPy7AvuuA",
         "luma_url": "https://lu.ma/descinyc1",
-        "luma_id": "evt-Irx8AwrXvLe08Rb",
-        "time": "AAAA"
+        "luma_id": "evt-Irx8AwrXvLe08Rb"
     },
     {
         "id": 2,
@@ -14,8 +13,7 @@
         "speaker": "Andrew Bakst & Andrew Verbinnen",
         "yt_uuid": "BvL1BfY8i9I",
         "luma_url": "https://lu.ma/descinyc2",
-        "luma_id": "evt-eXpED4eMi3SqccF",
-        "time": "AAAA"
+        "luma_id": "evt-eXpED4eMi3SqccF"
     },
     {
         "id": 3,
@@ -23,8 +21,7 @@
         "speaker": "Balázs Szigeti & Tyler Quigley",
         "yt_uuid": "_XAoMJFEEEk",
         "luma_url": "https://lu.ma/descinyc3",
-        "luma_id": "evt-AfuMCYGHspQQ7RT",
-        "time": "AAAA"
+        "luma_id": "evt-AfuMCYGHspQQ7RT"
     },
     {
         "id": 4,
@@ -32,8 +29,7 @@
         "speaker": "Martin Shkreli",
         "yt_uuid": "j-A6uu22QYQ",
         "luma_url": "https://lu.ma/descinyc4",
-        "luma_id": "evt-AoCjUCORkipjsLD",
-        "time": "AAAA"
+        "luma_id": "evt-AoCjUCORkipjsLD"
     },
     {
         "id": 5,
@@ -41,8 +37,7 @@
         "speaker": "William Entriken",
         "yt_uuid": "oYUB_ALbW3Y",
         "luma_url": "https://lu.ma/descinyc5",
-        "luma_id": "evt-rtPgUvrtzA764wt",
-        "time": "AAAA"
+        "luma_id": "evt-rtPgUvrtzA764wt"
     },
     {
         "id": 6,
@@ -50,8 +45,7 @@
         "speaker": "Patrick Joyce",
         "yt_uuid": "i26zF9SeMSU",
         "luma_url": "https://lu.ma/descinyc6",
-        "luma_id": "evt-kUtP7iFeZXO5nPD",
-        "time": "AAAA"
+        "luma_id": "evt-kUtP7iFeZXO5nPD"
     },
     {
         "id": 7,
@@ -59,8 +53,7 @@
         "speaker": "Many Speakers",
         "yt_uuid": "lyf_x1mtlU0",
         "luma_url": "https://lu.ma/descinyc7",
-        "luma_id": "evt-MNjgxlNPD1U3B9V",
-        "time": "AAAA"
+        "luma_id": "evt-MNjgxlNPD1U3B9V"
     },
     {
         "id": 8,
@@ -68,8 +61,7 @@
         "speaker": "Dr. Matt Kaeberlein, Kai Micah Mills, Dr. Alex Colville",
         "yt_uuid": "Zlq2tXRm_RI",
         "luma_url": "https://lu.ma/descinyc8",
-        "luma_id": "evt-DOSQfGvD6tLrIYX",
-        "time": "AAAA"
+        "luma_id": "evt-DOSQfGvD6tLrIYX"
     },
     {
         "id": 10,
@@ -77,8 +69,7 @@
         "speaker": "Professor Jean Hébert",
         "yt_uuid": "KTpbTopiX64",
         "luma_url": "https://lu.ma/descinyc10",
-        "luma_id": "evt-O7GlC1bcMM7GUuL",
-        "time": "AAAA"
+        "luma_id": "evt-O7GlC1bcMM7GUuL"
     },
     {
         "id": 11,
@@ -86,8 +77,7 @@
         "speaker": "Professor Vincent Ferrera & Siraj Raval",
         "yt_uuid": "fRuC5uNzPuw",
         "luma_url": "https://lu.ma/descinyc11",
-        "luma_id": "evt-O82TBtCU96kD4Zx",
-        "time": "AAAA"
+        "luma_id": "evt-O82TBtCU96kD4Zx"
     },
     {
         "id": 12,
@@ -95,8 +85,7 @@
         "speaker": "Aron d'Souza",
         "yt_uuid": "WXOhKieQocY",
         "luma_url": "https://lu.ma/descinyc12",
-        "luma_id": "evt-CWVN33phUcvEO55",
-        "time": "AAAA"
+        "luma_id": "evt-CWVN33phUcvEO55"
     },
     {
         "id": 13,
@@ -104,8 +93,7 @@
         "speaker": "Eric Wollberg",
         "yt_uuid": "NsPC6rodw8U",
         "luma_url": "https://lu.ma/descinyc13",
-        "luma_id": "evt-OZY2Z8sy3J5jO9K",
-        "time": "AAAA"
+        "luma_id": "evt-OZY2Z8sy3J5jO9K"
     },
     {
         "id": 14,
@@ -113,7 +101,6 @@
         "speaker": "Suprise",
         "yt_uuid": "",
         "luma_url": "https://lu.ma/descinyc14",
-        "luma_id": "evt-Shhp3aRZ4JthGiH",
-        "time": ""
+        "luma_id": "evt-Shhp3aRZ4JthGiH"
     }
 ]

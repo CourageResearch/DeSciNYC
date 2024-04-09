@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
+import { RadioGroup, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/20/solid'
-import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import links from '../links.json'
 import Image from 'next/image'
 
@@ -26,8 +25,6 @@ const product = {
     },],
   colors: [
     { name: 'Washed Black', bgColor: 'bg-gray-700', selectedColor: 'ring-gray-700' },
-    // { name: 'White', bgColor: 'bg-white', selectedColor: 'ring-gray-400' },
-    // { name: 'Washed Gray', bgColor: 'bg-gray-500', selectedColor: 'ring-gray-500' },
   ],
   description: `
     <p>Introducing the "DeSciNYC T-Shirt" – the ultimate fusion of science and New York City vibes! Unleash your inner urban explorer whether your navigating the concrete jungle or the wet lab.</p>
