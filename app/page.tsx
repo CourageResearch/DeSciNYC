@@ -6,15 +6,15 @@ import Hero from '@/components/Hero';
 import StayInTouch from '@/components/FindOutMore';
 import Shop from '@/components/Shop';
 
-import { getLumaEvent } from './getter';
+import { getGalleryPhotos, getLumaEvent } from './getter';
 import db from '../db.json';
-
-// import Gallery from "@/components/Gallery";
+import {PhotoGallery} from "@/components/PhotoGallery";
 
 export default async function HomePage() {
 
   const nextEvent = db[db.length - 1];
   const lumaEvent = await getLumaEvent({ event_id: nextEvent.luma_id });
+  const images = await getGalleryPhotos();
 
   return (
     <div className='bg-green-300'>
@@ -23,12 +23,13 @@ export default async function HomePage() {
       />
       <NextEvent lumaEvent={lumaEvent} />
       <StayInTouch />
-      <PastEvents/>
+      <PastEvents />
+      <PhotoGallery
+        images={images}
+      />
       <MailingList />
       <Shop />
       <ContactUs />
-
-      {/* <Gallery /> */}
     </div>
   );
 }

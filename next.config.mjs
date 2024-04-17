@@ -7,7 +7,13 @@ const nextConfig = {
             },
             {
                 hostname: 'i3.ytimg.com'
-            }
+            },
+            {
+                hostname: 'flowbite.s3.amazonaws.com'
+            },
+            {
+                hostname: 'picsum.photos'
+            },
         ],
     },
 };

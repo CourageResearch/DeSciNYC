@@ -1,5 +1,10 @@
 import { LumaEvent } from "@/types/interfaces";
 import axios from "axios";
+import fs from 'fs';
+import path from 'path';
+import { promisify } from 'util';
+
+const readdir = promisify(fs.readdir);
 
 export const getLumaEvent = async (
     {
@@ -19,4 +24,22 @@ export const getLumaEvent = async (
 
     const lumaEvent = await axios.request(options)
     return lumaEvent.data.event as LumaEvent;
+}
+
+export const getGalleryPhotos = async () => {
+    try {
+        const directoryPath = path.join(process.cwd(), 'public', 'gallery');
+        const thumbnailDirectoryPath = path.join(process.cwd(), 'public', 'gallery', 'thumbnails');
+        const files = await readdir(directoryPath);
+        // Filter out non-image files
+        const imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file));
+        // Map image files to required format
+        const images = imageFiles.map(file => ({
+            original: path.join('/gallery', file),
+            thumbnail: path.join('/gallery/thumbnails', file),
+        }));
+        return images;
+    } catch (err) {
+        throw new Error(String(err));
+    }
 }
