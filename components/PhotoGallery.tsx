@@ -28,6 +28,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ images }) => {
                         className="mt-8"
                     >
                         < ImageGallery
+                            thumbnailPosition="bottom"
                             items={images}
                         />;
                     </div>

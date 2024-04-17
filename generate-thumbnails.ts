@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs-extra';
 import path from 'path';
 
-const sourceDir = 'C:\\Users\\mfisc\\Downloads\\Photos-001';
+const sourceDir = '.\\public\\gallery';
 const targetDir = path.join(sourceDir, 'thumbnails');
 
 async function createThumbnails() {
