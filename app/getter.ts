@@ -28,14 +28,13 @@ export const getLumaEvent = async (
 
 export const getGalleryPhotos = async () => {
     try {
-        const directoryPath = path.join(process.cwd(), 'public', 'gallery');
-        const thumbnailDirectoryPath = path.join(process.cwd(), 'public', 'gallery', 'thumbnails');
+        const directoryPath = path.join(process.cwd(), 'public', 'gallery', 'small');
         const files = await readdir(directoryPath);
         // Filter out non-image files
         const imageFiles = files.filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file));
         // Map image files to required format
         const images = imageFiles.map(file => ({
-            original: path.join('/gallery', file),
+            original: path.join('/gallery/small', file),
             thumbnail: path.join('/gallery/thumbnails', file),
         }));
         return images;
