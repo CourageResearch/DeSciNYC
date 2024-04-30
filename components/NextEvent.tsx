@@ -33,7 +33,7 @@ export default function NextEvent(
     const { Canvas } = useQRCode();
 
     return (
-        
+
         <div className="overflow-hidden bg-green-400 py-24 sm:py-32" id='next-event'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -54,7 +54,15 @@ export default function NextEvent(
                                     </div>
                                 ))}
                             </div> */}
-                            
+
+                            {/* <div className="mt-6 text-lg leading-8 text-gray-900 mb-7">
+                                {lumaEvent.description.split('🐦')[0].trim().split('\n').map((line, i) => (
+                                    <p key={i} className="mt-3">
+                                        {line}
+                                    </p>
+                                ))}
+                            </div> */}
+
                             {/* <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
                                     <div key={feature.name} className="relative pl-9">
@@ -81,7 +89,7 @@ export default function NextEvent(
                             RSVP
                         </a>
 
-                        <div className="mt-10">
+                        {/* <div className="mt-10">
                             <Canvas
                                 text={lumaEvent.url}
                                 options={{
@@ -95,7 +103,7 @@ export default function NextEvent(
                                     }
                                 }}
                             />
-                        </div>
+                        </div> */}
                     </div>
 
                     <Image
