@@ -44,14 +44,15 @@ export default function NextEvent(
                             <h2 className="text-base font-semibold leading-7 text-gray-700 mt-4">
                                 {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATETIME_FULL)} in NYC
                             </h2>
-                            <p className="mt-6 text-lg leading-8 text-gray-900">
+                            <div className="mt-6 text-lg leading-8 text-gray-900">
                                 {lumaEvent.description.split('More chatting\n', 1)[0].concat('More chatting\n').split('\n').map((line, i) => (
-                                    <span key={i}>
+                                    <p key={i}
+                                        className="block mt-3"
+                                    >
                                         {line}
-                                        <br />
-                                    </span>
+                                    </p>
                                 ))}
-                            </p>
+                            </div>
                             {/* <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
                                     <div key={feature.name} className="relative pl-9">
