@@ -21,15 +21,17 @@ export default async function HomePage() {
       {/* <Hero
         lumaEvent={lumaEvent}
       />
-      <NextEvent lumaEvent={lumaEvent} />
+      <NextEvent lumaEvent={lumaEvent} /> */}
       <StayInTouch />
-      <PastEvents /> */}
-      <PhotoGallery
+      <PastEvents />
+
+{/* these work */}
+      {/* <PhotoGallery
         images={images}
       />
       <MailingList />
       <Shop />
-      <ContactUs />
+      <ContactUs /> */}
     </div>
   );
 }
