@@ -20,10 +20,10 @@ export default async function HomePage() {
     <div className='bg-green-300'>
       {/* <Hero
         lumaEvent={lumaEvent}
-      />
-      <NextEvent lumaEvent={lumaEvent} /> */}
-      <StayInTouch />
-      <PastEvents />
+      /> */}
+      <NextEvent lumaEvent={lumaEvent} />
+      {/* <StayInTouch />
+      <PastEvents /> */}
 
 {/* these work */}
       {/* <PhotoGallery
