@@ -18,13 +18,13 @@ export default async function HomePage() {
 
   return (
     <div className='bg-green-300'>
-      {/* <Hero
+      <Hero
         lumaEvent={lumaEvent}
       />
       <NextEvent lumaEvent={lumaEvent} />
       <StayInTouch />
       <PastEvents />
-      <PhotoGallery
+      {/* <PhotoGallery
         images={images}
       />
       <MailingList />
