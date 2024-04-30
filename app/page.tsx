@@ -18,7 +18,7 @@ export default async function HomePage() {
 
   return (
     <div className='bg-green-300'>
-      <Hero
+      {/* <Hero
         lumaEvent={lumaEvent}
       />
       <NextEvent lumaEvent={lumaEvent} />
@@ -29,7 +29,7 @@ export default async function HomePage() {
       />
       <MailingList />
       <Shop />
-      <ContactUs />
+      <ContactUs /> */}
     </div>
   );
 }
