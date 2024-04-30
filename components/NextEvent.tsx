@@ -1,10 +1,10 @@
 'use client'
 
-import { useQRCode } from 'next-qrcode';
+// import { useQRCode } from 'next-qrcode';
 import { LumaEvent } from '../types/interfaces'
 import { DateTime } from 'luxon';
-import Image from 'next/image'
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+// import Image from 'next/image'
+// import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 
 // const features = [
 //     {
@@ -30,7 +30,7 @@ export default function NextEvent(
     { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
 
-    const { Canvas } = useQRCode();
+    // const { Canvas } = useQRCode();
 
     return (
 
@@ -76,7 +76,7 @@ export default function NextEvent(
                             </dl> */}
                         </div>
 
-                        <a
+                        {/* <a
                             target="_blank"
                             href={lumaEvent.url}
                             className="inline-flex rounded-md bg-green-900 px-3.5 
@@ -87,7 +87,7 @@ export default function NextEvent(
                             "
                         >
                             RSVP
-                        </a>
+                        </a> */}
 
                         {/* <div className="mt-10">
                             <Canvas
