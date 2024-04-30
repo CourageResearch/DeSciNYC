@@ -106,14 +106,14 @@ export default function NextEvent(
                         </div> */}
                     </div>
 
-                    <Image
+                    {/* <Image
                         src=
                         "https://images.unsplash.com/photo-1576670159375-8beb7c963ead?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Product screenshot"
                         className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
                         width={2432}
                         height={1442}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
