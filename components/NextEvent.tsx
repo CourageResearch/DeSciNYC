@@ -1,39 +1,13 @@
-'use client'
-
-// import { useQRCode } from 'next-qrcode';
 import { LumaEvent } from '../types/interfaces'
-// import { DateTime } from 'luxon';
-// import Image from 'next/image'
-// import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
-
-// const features = [
-//     {
-//         name: 'Push to deploy.',
-//         description:
-//             'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-//         icon: CloudArrowUpIcon,
-//     },
-//     {
-//         name: 'SSL certificates.',
-//         description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-//         icon: LockClosedIcon,
-//     },
-//     {
-//         name: 'Database backups.',
-//         description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-//         icon: ServerIcon,
-//     },
-// ]
-
+import { DateTime } from 'luxon';
+import Image from 'next/image'
+import QRCode from './QRCode';
 
 export default function NextEvent(
     { lumaEvent }: { lumaEvent: LumaEvent }
 ) {
 
-    // const { Canvas } = useQRCode();
-
     return (
-
         <div className="overflow-hidden bg-green-400 py-24 sm:py-32" id='next-event'>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -42,9 +16,9 @@ export default function NextEvent(
                             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 Join Us At the Next Event!
                             </p>
-                            {/* <h2 className="text-base font-semibold leading-7 text-gray-700 mt-4">
+                            <h2 className="text-base font-semibold leading-7 text-gray-700 mt-4">
                                 {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATETIME_FULL)} in NYC
-                            </h2> */}
+                            </h2>
                             {/* <div className="mt-6 text-lg leading-8 text-gray-900">
                                 {lumaEvent.description.split('More chatting\n', 1)[0].concat('More chatting\n').split('\n').map((line, i) => (
                                     <div key={i}
@@ -55,13 +29,13 @@ export default function NextEvent(
                                 ))}
                             </div> */}
 
-                            {/* <div className="mt-6 text-lg leading-8 text-gray-900 mb-7">
+                            <div className="mt-6 text-lg leading-8 text-gray-900 mb-7">
                                 {lumaEvent.description.split('🐦')[0].trim().split('\n').map((line, i) => (
                                     <p key={i} className="mt-3">
                                         {line}
                                     </p>
                                 ))}
-                            </div> */}
+                            </div>
 
                             {/* <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
@@ -76,7 +50,7 @@ export default function NextEvent(
                             </dl> */}
                         </div>
 
-                        {/* <a
+                        <a
                             target="_blank"
                             href={lumaEvent.url}
                             className="inline-flex rounded-md bg-green-900 px-3.5 
@@ -87,33 +61,21 @@ export default function NextEvent(
                             "
                         >
                             RSVP
-                        </a> */}
+                        </a>
 
-                        {/* <div className="mt-10">
-                            <Canvas
-                                text={lumaEvent.url}
-                                options={{
-                                    errorCorrectionLevel: 'M',
-                                    margin: 0,
-                                    scale: 3,
-                                    width: 150,
-                                    color: {
-                                        dark: '#14532d',
-                                        light: '#4ade80',
-                                    }
-                                }}
-                            />
-                        </div> */}
+                        <div className="mt-10">
+                            <QRCode url={lumaEvent.url} />
+                        </div>
                     </div>
 
-                    {/* <Image
+                    <Image
                         src=
                         "https://images.unsplash.com/photo-1576670159375-8beb7c963ead?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Product screenshot"
                         className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
                         width={2432}
                         height={1442}
-                    /> */}
+                    />
                 </div>
             </div>
         </div>
