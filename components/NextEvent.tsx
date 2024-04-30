@@ -2,7 +2,7 @@
 
 // import { useQRCode } from 'next-qrcode';
 import { LumaEvent } from '../types/interfaces'
-import { DateTime } from 'luxon';
+// import { DateTime } from 'luxon';
 // import Image from 'next/image'
 // import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 
@@ -42,9 +42,9 @@ export default function NextEvent(
                             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 Join Us At the Next Event!
                             </p>
-                            <h2 className="text-base font-semibold leading-7 text-gray-700 mt-4">
+                            {/* <h2 className="text-base font-semibold leading-7 text-gray-700 mt-4">
                                 {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATETIME_FULL)} in NYC
-                            </h2>
+                            </h2> */}
                             {/* <div className="mt-6 text-lg leading-8 text-gray-900">
                                 {lumaEvent.description.split('More chatting\n', 1)[0].concat('More chatting\n').split('\n').map((line, i) => (
                                     <div key={i}
