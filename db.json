@@ -98,9 +98,17 @@
     {
         "id": 14,
         "title": "Bioelectricity",
-        "speaker": "Michael Levin",
-        "yt_uuid": "",
+        "speaker": "Professor Michael Levin",
+        "yt_uuid": "N4uE5jIG1Co",
         "luma_url": "https://lu.ma/descinyc14",
         "luma_id": "evt-a0jAGi6FAyM1jbi"
+    },
+    {
+        "id": 16,
+        "title": "Microbiome",
+        "speaker": "Scott Hickle",
+        "yt_uuid": "",
+        "luma_url": "https://lu.ma/descinyc16",
+        "luma_id": "evt-VpbE622tBokAlzp"
     }
 ]
