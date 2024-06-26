@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DeSciNYC - Decentlized Scinece NYC",
+  title: "DeSciNYC - Decentralized Science NYC",
   description: "We are a community of scientists, engineers, and enthusiasts who are passionate about decentralized science.",
   metadataBase: new URL("https://localhost:3000/"),
   openGraph: {
