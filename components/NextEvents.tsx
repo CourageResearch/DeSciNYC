@@ -46,10 +46,10 @@ export default function NextEvents(
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {DateTime.fromISO(lumaEvent.start_at).toLocaleString(DateTime.DATETIME_FULL)}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-500">
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-green-500">
                                                     <a href={lumaEvent.url} target="_blank" rel="noopener noreferrer"
-                                                        className="inline-block px-4 py-2 bg-green-600 text-white font-semibold 
-                                text-sm rounded-lg hover:bg-blue-600">
+                                                        className="inline-block px-4 py-2 bg-green-500 text-white font-semibold 
+                                                        text-sm rounded-lg hover:bg-green-400">
                                                         RSVP
                                                     </a>
                                                 </td>
