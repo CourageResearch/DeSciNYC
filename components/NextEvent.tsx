@@ -70,7 +70,7 @@ export default function NextEvent(
                         </a>
 
                         <div className="mt-10">
-                            <QRCode url={lumaEvent.url} />
+                            <QRCode url={lumaEvent.url + "?utm_source=qr"} />
                         </div>
                     </div>
 
