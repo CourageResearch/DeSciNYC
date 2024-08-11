@@ -1,5 +1,5 @@
 {
-    "next_event": "17",
+    "next_event": "18",
     "events": [
         {
             "id": "1",
@@ -117,7 +117,7 @@
             "id": "17",
             "title": "The Science of Presidential Elections",
             "speaker": "David Shor",
-            "yt_uuid": "",
+            "yt_uuid": "AcRNChfcw-I",
             "luma_url": "https://lu.ma/descinyc17",
             "luma_id": "evt-adPa4YgyXz8dTBE"
         },
