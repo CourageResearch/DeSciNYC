@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
+import Image from "next/image";
 
 const navItems = [
   // {
@@ -20,24 +20,29 @@ const navItems = [
   //   "current": false
   // },
   {
-    "name": "Next Event",
-    "href": "#next-event",
-    "current": false
+    name: "Next Event",
+    href: "#next-event",
+    current: false,
   },
   {
-    "name": "Find Out More",
-    "href": "#find-out-more",
-    "current": false
+    name: "Leaderboard",
+    href: "/leaderboard",
+    current: false,
   },
   {
-    "name": "Past Events",
-    "href": "#past-events",
-    "current": false
+    name: "Find Out More",
+    href: "#find-out-more",
+    current: false,
   },
   {
-    "name": "Mailing List",
-    "href": "#mailing-list",
-    "current": false
+    name: "Past Events",
+    href: "#past-events",
+    current: false,
+  },
+  {
+    name: "Mailing List",
+    href: "#mailing-list",
+    current: false,
   },
   // {
   //   "name": "Telegram Group",
@@ -60,27 +65,27 @@ const navItems = [
   //   "current": false
   // },
   {
-    "name": "Shop",
-    "href": "#shop",
-    "current": false
+    name: "Shop",
+    href: "#shop",
+    current: false,
   },
   {
-    "name": "Contact Us",
-    "href": "#contact-us",
-    "current": false
+    name: "Contact Us",
+    href: "#contact-us",
+    current: false,
   },
   // {
   //   "name": "Donate",
   //   "href": "#donate",
   //   "current": false
   // }
-]
+];
 
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
@@ -108,10 +113,10 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       className={classNames(
-                        item.current ?
-                          'border-indigo-500 text-gray-900' :
-                          'border-transparent text-gray-900 hover:border-green-600 hover:text-green-900',
-                        'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
+                        item.current
+                          ? "border-indigo-500 text-gray-900"
+                          : "border-transparent text-gray-900 hover:border-green-600 hover:text-green-900",
+                        "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
                       )}
                     >
                       {item.name}
@@ -121,9 +126,11 @@ export default function Navbar() {
               </div>
 
               <div className="-mr-2 flex items-center sm:hidden">
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2
+                <Disclosure.Button
+                  className="relative inline-flex items-center justify-center rounded-md p-2
                 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none 
-                focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -144,8 +151,10 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'border-indigo-500 bg-indigo-50 text-indigo-700' : 'border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700',
-                    'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
+                    item.current
+                      ? "border-indigo-500 bg-indigo-50 text-indigo-700"
+                      : "border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700",
+                    "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"
                   )}
                 >
                   {item.name}
@@ -156,5 +165,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
