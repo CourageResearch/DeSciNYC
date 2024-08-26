@@ -32,9 +32,9 @@ export default function NextEvents({
                   {cleanedName}
                 </h3>
                 <p className="text-sm text-gray-600 mb-3">
-                  {DateTime.fromISO(lumaEvent.start_at).toLocaleString(
-                    DateTime.DATETIME_FULL
-                  )}
+                  {DateTime.fromISO(lumaEvent.start_at)
+                    .setZone("America/New_York")
+                    .toLocaleString(DateTime.DATETIME_FULL)}
                 </p>
                 <a
                   href={lumaEvent.url}
@@ -85,9 +85,9 @@ export default function NextEvents({
                       {cleanedName}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {DateTime.fromISO(lumaEvent.start_at).toLocaleString(
-                        DateTime.DATETIME_FULL
-                      )}
+                      {DateTime.fromISO(lumaEvent.start_at)
+                        .setZone("America/New_York")
+                        .toLocaleString(DateTime.DATETIME_FULL)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-green-500">
                       <a

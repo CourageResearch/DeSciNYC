@@ -47,9 +47,9 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                                 focus-visible:outline-offset-2 focus-visible:outline-green-800"
             >
               RSVP to Next Event on{" "}
-              {DateTime.fromISO(lumaEvent.start_at).toLocaleString(
-                DateTime.DATE_FULL
-              )}
+              {DateTime.fromISO(lumaEvent.start_at)
+                .setZone("America/New_York")
+                .toLocaleString(DateTime.DATE_FULL)}
             </a>
             <a
               href="#mailing-list"
