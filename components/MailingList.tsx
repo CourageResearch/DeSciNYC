@@ -1,19 +1,26 @@
-'use client'
+"use client";
 
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react";
 export default function MailingList() {
-
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || '')
+  const [state, handleSubmit] = useForm(
+    process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || ""
+  );
 
   return (
-    <div className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32 bg-green-400" id='mailing-list'>
+    <div
+      className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32 bg-green-400"
+      id="mailing-list"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Subscribe to the mailing list.</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Subscribe to the mailing list.
+            </h2>
             <p className="mt-4 text-lg leading-8 text-gray-900">
-              About once a month, we send out an email with the latest news, events, and updates from
-              the decentralized science community in NYC.
+              About once a month, we send out an email with the latest news,
+              events, and updates from the decentralized science community in
+              NYC.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <form onSubmit={handleSubmit}>
@@ -51,32 +58,34 @@ export default function MailingList() {
                 </button>
               </form>
             </div>
-            {state.succeeded && <p className='text-gray-900'>Thanks for joining!</p>}
+            {state.succeeded && (
+              <p className="text-gray-900">Thanks for joining!</p>
+            )}
             {/* {state.succeeded && <p>Thanks for joining!</p>} */}
-
           </div>
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+          {/* <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
             <div className="flex flex-col items-start">
-              {/* <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <CalendarDaysIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
-              </div> */}
-              <dt className="font-semibold text-gray-900">Find out about events</dt>
+              </div>
+               <dt className="font-semibold text-gray-900">Find out about events</dt>
               <dd className="mt-2 leading-7 text-gray-900">
                 Find out about upcoming events and get the latest news about the decentralized science community in NYC.
-              </dd>
+              </dd> 
             </div>
             <div className="flex flex-col items-start">
-              {/* <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandRaisedIcon className="h-6 w-6 text-gray-900" aria-hidden="true" />
-              </div> */}
+              </div>
               <dt className="font-semibold text-gray-900">No spam</dt>
               <dd className="mt-2 leading-7 text-gray-900">
-                No spam and we will never share your email address with anyone else.
+                No spam and we will never share your email address with anyone
+                else.
               </dd>
             </div>
-          </dl>
+          </dl> */}
         </div>
       </div>
     </div>
-  )
+  );
 }
