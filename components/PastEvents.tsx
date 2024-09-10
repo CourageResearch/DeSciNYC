@@ -17,7 +17,7 @@ export default function PastEvents() {
                                                 width={1269/2}
                                                 height={714/2}
 
-                                                src={`https://i3.ytimg.com/vi/${event.yt_uuid}/maxresdefault.jpg`}
+                                                src={`https://i3.ytimg.com/vi/${event.yt_uuid}/sddefault.jpg`}
 
                                                 className="h-full w-full object-cover object-center"
                                                 alt=""
