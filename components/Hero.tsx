@@ -37,14 +37,14 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
             Science is for everyone, and we try to make it accessible to all.
           </p>
 
-          <div className="mt-10 flex items-center gap-x-6">
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-y-4 sm:gap-x-6">
             <a
               href={lumaEvent.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
+              className="w-full sm:w-auto rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
                                 shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 
-                                focus-visible:outline-offset-2 focus-visible:outline-green-800"
+                                focus-visible:outline-offset-2 focus-visible:outline-green-800 text-center"
             >
               RSVP to Next Event on{" "}
               {DateTime.fromISO(lumaEvent.start_at)
@@ -53,7 +53,9 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
             </a>
             <a
               href="#mailing-list"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="w-full sm:w-auto rounded-md border border-gray-900 px-3.5 py-2.5 text-sm font-semibold text-gray-900 
+                         shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 
+                         focus-visible:outline-offset-2 focus-visible:outline-gray-900 text-center"
             >
               Join the mailing list <span aria-hidden="true">→</span>
             </a>
