@@ -1,11 +1,29 @@
 "use client";
 
-import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
+import { handleAddToEmailList } from "@/app/handlers";
 
 export default function FooterEmailForm() {
-  const [state, handleSubmit] = useForm(
-    process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || ""
-  );
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      await handleAddToEmailList(email);
+      setIsSuccess(true);
+      setEmail("");
+    } catch (err) {
+      setError("Failed to add email to list. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="mt-10 xl:mt-0">
@@ -13,7 +31,7 @@ export default function FooterEmailForm() {
         Subscribe to the DeSci newsletter
       </h3>
       <p className="mt-2 text-sm leading-6 text-black">
-        The latest events, news, and resources, sent to your inbox montly.
+        The latest events, news, and resources, sent to your inbox monthly.
       </p>
       <form className="mt-6 sm:flex sm:max-w-md" onSubmit={handleSubmit}>
         <label htmlFor="email-address" className="sr-only">
@@ -27,13 +45,13 @@ export default function FooterEmailForm() {
           required
           className="w-full min-w-0 appearance-none rounded-md border-0 bg-white px-3 py-1.5 text-base text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:w-64 sm:text-sm sm:leading-6 xl:w-full"
           placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
 
         <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
           <button
-            disabled={state.submitting}
+            disabled={isSubmitting}
             type="submit"
             className="rounded-md bg-green-800 px-3.5 py-2.5 text-sm font-semibold text-white 
                                     shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 
@@ -43,9 +61,10 @@ export default function FooterEmailForm() {
           </button>
         </div>
       </form>
-      {state.succeeded && (
-        <p className="text-gray-900">Thanks for subscribing!</p>
+      {isSuccess && (
+        <p className="text-gray-900 mt-2">Thanks for subscribing!</p>
       )}
+      {error && <p className="text-red-600 mt-2">{error}</p>}
     </div>
   );
 }
