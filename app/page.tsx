@@ -30,13 +30,14 @@ export default async function HomePage() {
   return (
     <div className="bg-green-300">
       <Hero lumaEvent={lumaEvent} />
+      <MailingList />
       <NextEvent lumaEvent={lumaEvent} />
       <NextEvents lumaEvents={lumaEvents} />
 
       <PastEvents />
       <PhotoGallery images={images} />
       <StayInTouch />
-      <MailingList />
+
       <Shop />
       <ContactUs />
     </div>

@@ -57,14 +57,14 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                   .setZone("America/New_York")
                   .toLocaleString(DateTime.DATE_FULL)}
               </a>
-              <a
+              {/* <a
                 href="#mailing-list"
                 className="w-full sm:w-auto rounded-md border border-gray-900 px-3.5 py-2.5 text-sm font-semibold text-gray-900 
                            shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 
                            focus-visible:outline-offset-2 focus-visible:outline-gray-900 text-center"
               >
                 Join the mailing list <span aria-hidden="true">→</span>
-              </a>
+              </a> */}
             </div>
           </div>
 
