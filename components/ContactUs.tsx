@@ -1,11 +1,48 @@
 "use client";
 
-import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
+import { handleAddContactFormResponse } from "../app/handlers";
 
 export default function ContactUs() {
-  const [state, handleSubmit] = useForm(
-    process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || ""
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
+    "idle"
   );
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setFormStatus("idle");
+    setErrorMessage("");
+
+    const formElement = event.currentTarget;
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const result = await handleAddContactFormResponse(
+        formData.get("full-name") as string,
+        formData.get("email") as string,
+        formData.get("phone-number") as string,
+        formData.get("message") as string
+      );
+
+      console.log(result);
+
+      if (result.success) {
+        setFormStatus("success");
+        // Reset form
+        formElement.reset(); // Un-commented this line
+      } else {
+        setFormStatus("error");
+        setErrorMessage(result.error || "An unknown error occurred");
+      }
+    } catch (error) {
+      console.error("Error saving to Supabase:", error);
+      setFormStatus("error");
+      setErrorMessage("An unexpected error occurred. Please try again later.");
+    }
+  };
 
   return (
     <div className="relative isolate" id="contact-us">
@@ -23,7 +60,7 @@ export default function ContactUs() {
           </div>
         </div>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={onSubmit}
           className="px-6 pb-24 pt-8 sm:pt-20 sm:pb-32 lg:px-8 lg:py-48"
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
@@ -46,11 +83,6 @@ export default function ContactUs() {
                     placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
                     focus:ring-green-600 sm:text-sm sm:leading-6"
                   />
-                  <ValidationError
-                    prefix="Full Name"
-                    field="full-name"
-                    errors={state.errors}
-                  />
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -66,12 +98,8 @@ export default function ContactUs() {
                     name="email"
                     id="email"
                     autoComplete="email"
+                    required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                  <ValidationError
-                    prefix="Email"
-                    field="email"
-                    errors={state.errors}
                   />
                 </div>
               </div>
@@ -90,11 +118,6 @@ export default function ContactUs() {
                     autoComplete="tel"
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
-                  <ValidationError
-                    prefix="Phone Number"
-                    field="phone-number"
-                    errors={state.errors}
-                  />
                 </div>
               </div>
               <div className="sm:col-span-2">
@@ -109,13 +132,9 @@ export default function ContactUs() {
                     name="message"
                     id="message"
                     rows={4}
+                    required
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue={""}
-                  />
-                  <ValidationError
-                    prefix="Message"
-                    field="message"
-                    errors={state.errors}
                   />
                 </div>
               </div>
@@ -130,8 +149,17 @@ export default function ContactUs() {
                 Send message
               </button>
             </div>
-            {state.succeeded && (
-              <p className="text-gray-900">Thanks for the message!</p>
+            {formStatus === "success" && (
+              <p className="text-green-600 mt-2">
+                Thanks for the message! Your message has been saved
+                successfully.
+              </p>
+            )}
+            {formStatus === "error" && (
+              <p className="text-red-600 mt-2">
+                {errorMessage ||
+                  "There was an error saving your message. Please try again later."}
+              </p>
             )}
           </div>
         </form>
