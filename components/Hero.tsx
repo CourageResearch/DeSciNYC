@@ -29,7 +29,7 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
 
             <p className="mt-6 text-sm leading-2 text-gray-900 text-center lg:text-left">
               A monthly NYC meetup for science enthusiasts to learn, share
-              projects, and socialize. We believe Science is for everyone, and
+              projects, and socialize. We believe science is for everyone, and
               we try to make it accessible to all.
             </p>
 
