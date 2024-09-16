@@ -15,28 +15,14 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
               </h1>
             </div>
 
-            <p className="hidden lg:block mt-6 text-sm leading-2 text-gray-900 text-center lg:text-left">
+            <p className="lg:block mt-6 text-sm leading-2 text-gray-900 text-center lg:text-left">
               A monthly NYC meetup for science enthusiasts to learn, share
               projects, and socialize. We believe science is for everyone, and
               we try to make it accessible to all.
             </p>
 
-            <p className="lg:hidden mt-2 text-sm leading-2 text-gray-900 text-center lg:text-left">
-              Making science accessible to everyone.
-            </p>
-
-            <div className="mt-6 lg:hidden w-screen -mx-6">
-              <Image
-                src={lumaEvent.cover_url}
-                alt="DeSci NYC Logo"
-                width={1000}
-                height={1000}
-                objectFit="cover"
-                className="w-full h-86 object-cover"
-              />
-            </div>
-
-            <div className="mt-10 flex flex-col sm:flex-row items-center gap-y-4 sm:gap-x-6 lg:justify-start">
+            {/* Move the button container here */}
+            <div className="mt-6 flex flex-col items-center lg:items-start">
               <a
                 href={lumaEvent.url}
                 target="_blank"
@@ -50,6 +36,18 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                   .setZone("America/New_York")
                   .toLocaleString(DateTime.DATE_FULL)}
               </a>
+            </div>
+
+            {/* Image div now comes after the button */}
+            <div className="mt-6 lg:hidden w-screen -mx-6">
+              <Image
+                src={lumaEvent.cover_url}
+                alt="DeSci NYC Logo"
+                width={1000}
+                height={1000}
+                objectFit="cover"
+                className="w-full h-86 object-cover"
+              />
             </div>
           </div>
 
