@@ -9,7 +9,12 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
       <div className="mx-auto max-w-7xl px-0 lg:px-8 w-full">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-center">
           <div className="lg:col-span-1 px-6 lg:px-0">
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-col lg:flex-row gap-2">
+              <img
+                src="/images/descinyc-logo.png"
+                className="w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0"
+                style={{ height: "auto" }}
+              />
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center lg:text-left">
                 Welcome to Decentralized Science NYC.
               </h1>
