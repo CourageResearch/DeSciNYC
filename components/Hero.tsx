@@ -12,12 +12,17 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
             <div className="flex flex-col lg:flex-row gap-2">
               <img
                 src="/images/descinyc-logo.png"
-                className="w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0"
+                className="block lg:hidden w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0"
                 style={{ height: "auto" }}
               />
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center lg:text-left">
                 Welcome to Decentralized Science NYC.
               </h1>
+              <img
+                src="/images/descinyc-logo.png"
+                className="hidden lg:block w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0 lg:order-last"
+                style={{ height: "auto" }}
+              />
             </div>
 
             <p className="lg:block mt-6 text-sm leading-2 text-gray-900 text-center lg:text-left">
