@@ -1,5 +1,5 @@
 {
-    "next_event": "19",
+    "next_event": "20",
     "events": [
         {
             "id": "1",
@@ -137,20 +137,31 @@
             "luma_url": "https://lu.ma/descinyc19",
             "luma_id": "evt-dc04Au36HzE1tvh"
         },
+        
+        
+        {
+            "id": "20",
+            "title": "Winegrape Genomics",
+            "speaker": "Dr. Amanda Vondras",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc21",
+            "luma_id": "evt-kDeqLEVGoTY5TS0"
+        },
+        
         {
             "id": "21",
             "title": "Penile Optimization: A Comprehensive Scientific Approach",
             "speaker": "Sheridan Clayborne",
             "yt_uuid": "",
-            "luma_url": "https://lu.ma/descinyc21",
+            "luma_url": "https://lu.ma/descinyc20",
             "luma_id": "evt-f5gDKBf649f8ZuH"
         },
         {
-            "id": "20",
+            "id": "22",
             "title": "Embryology",
             "speaker": "Noor Siddiqui",
             "yt_uuid": "",
-            "luma_url": "https://lu.ma/descinyc20",
+            "luma_url": "https://lu.ma/descinyc30",
             "luma_id": "evt-dwMN2JapE341I9s"
         }
     ]
