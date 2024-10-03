@@ -1,5 +1,5 @@
 {
-    "next_event": "20",
+    "next_event": "21",
     "events": [
         {
             "id": "1",
@@ -132,18 +132,16 @@
         {
             "id": "19",
             "title": "BioHacking",
-            "speaker": "Jo Zayner",
+            "speaker": "Josie Zayner",
             "yt_uuid": "",
             "luma_url": "https://lu.ma/descinyc19",
             "luma_id": "evt-dc04Au36HzE1tvh"
         },
-        
-        
         {
             "id": "20",
-            "title": "Winegrape Genomics",
-            "speaker": "Dr. Amanda Vondras",
-            "yt_uuid": "",
+            "title": "Ketamine: Brainwide Recording and the Neurobiology of Dissociation",
+            "speaker": "Dr. Isaac V Kauvar",
+            "yt_uuid": "eRYe_7FUmzM",
             "luma_url": "https://lu.ma/descinyc21",
             "luma_id": "evt-kDeqLEVGoTY5TS0"
         },
