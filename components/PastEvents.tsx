@@ -56,9 +56,9 @@ export default function PastEvents() {
                           </a>
                         </h3>
                       </div>
-                      <p className="text-sm font-medium text-gray-900">
+                      {/* <p className="text-sm font-medium text-gray-900">
                         #{event.id}
-                      </p>
+                      </p> */}
                     </div>
                     <h3 className="text-sm mt-2 text-black ">
                       <a
