@@ -20,18 +20,28 @@ export default function PastEvents() {
                     className="group relative"
                     id={event.id + ""}
                   >
-                    <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+                    <div
+                      className="rounded-md group-hover:opacity-75"
+                      style={{
+                        position: "relative",
+                        width: "100%",
+                        paddingBottom: "56.25%", // 16:9 Aspect Ratio
+                        overflow: "hidden",
+                        backgroundColor: "#000", // Black background
+                      }}
+                    >
                       <a
                         href={`https://www.youtube.com/watch?v=${event.yt_uuid}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Image
-                          width={1269 / 2}
-                          height={714 / 2}
-                          src={`https://i3.ytimg.com/vi/${event.yt_uuid}/sddefault.jpg`}
-                          className="h-full w-full object-cover object-center"
+                          src={`https://i3.ytimg.com/vi/${event.yt_uuid}/maxresdefault.jpg`}
                           alt=""
+                          fill
+                          style={{
+                            objectFit: "cover",
+                          }}
                         />
                       </a>
                     </div>
@@ -56,11 +66,8 @@ export default function PastEvents() {
                           </a>
                         </h3>
                       </div>
-                      {/* <p className="text-sm font-medium text-gray-900">
-                        #{event.id}
-                      </p> */}
                     </div>
-                    <h3 className="text-sm mt-2 text-black ">
+                    <h3 className="text-sm mt-2 text-black">
                       <a
                         href={event.luma_url}
                         target="_blank"
