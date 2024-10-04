@@ -125,7 +125,7 @@ export default function Navbar() {
                       href={item.href}
                       className={classNames(
                         item.current
-                          ? "border-indigo-500 text-gray-900"
+                          ? "border-green-600 text-green-900" // Updated active classes
                           : "border-transparent text-gray-900 hover:border-green-600 hover:text-green-900",
                         "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
                       )}
@@ -169,7 +169,7 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "border-green-600 bg-green-500 text-white"
+                      ? "border-green-600 bg-green-500 text-white" // Updated active classes
                       : "border-transparent text-black hover:border-green-300 hover:bg-green-500",
                     "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"
                   )}
