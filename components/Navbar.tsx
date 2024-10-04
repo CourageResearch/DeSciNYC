@@ -1,6 +1,12 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
+import Link from "next/link"; // Import Link
+import { usePathname } from "next/navigation"; // Import usePathname
+
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navItems = [
   // {
@@ -21,7 +27,7 @@ const navItems = [
   // },
   {
     name: "Next Event",
-    href: "#next-event",
+    href: "/#next-event",
     current: false,
   },
   {
@@ -31,17 +37,17 @@ const navItems = [
   },
   {
     name: "Find Out More",
-    href: "#find-out-more",
+    href: "/#find-out-more",
     current: false,
   },
   {
     name: "Past Events",
-    href: "#past-events",
+    href: "/#past-events",
     current: false,
   },
   {
     name: "Mailing List",
-    href: "#mailing-list",
+    href: "/#mailing-list",
     current: false,
   },
   // {
@@ -66,12 +72,12 @@ const navItems = [
   // },
   {
     name: "Shop",
-    href: "#shop",
+    href: "/#shop",
     current: false,
   },
   {
     name: "Contact Us",
-    href: "#contact-us",
+    href: "/#contact-us",
     current: false,
   },
   // {
@@ -81,14 +87,19 @@ const navItems = [
   // }
 ];
 
-import { Disclosure } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const pathname = usePathname(); // Get the current path
+
+  // Update navItems with the current path
+  const updatedNavItems = navItems.map((item) => ({
+    ...item,
+    current: pathname === item.href,
+  }));
+
   return (
     <Disclosure as="nav" className="bg-green-400 shadow">
       {({ open }) => (
@@ -97,7 +108,7 @@ export default function Navbar() {
             <div className="flex h-16 justify-between">
               <div className="flex">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/">
+                  <Link href="/">
                     <Image
                       className="h-8 w-auto"
                       src="/images/logo.svg"
@@ -105,11 +116,11 @@ export default function Navbar() {
                       width={378}
                       height={378}
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  {navItems.map((item) => (
-                    <a
+                  {updatedNavItems.map((item) => (
+                    <Link
                       key={item.name}
                       href={item.href}
                       className={classNames(
@@ -120,7 +131,7 @@ export default function Navbar() {
                       )}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -151,10 +162,10 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pb-3 pt-2">
-              {navItems.map((item) => (
+              {updatedNavItems.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
+                  as={Link}
                   href={item.href}
                   className={classNames(
                     item.current
