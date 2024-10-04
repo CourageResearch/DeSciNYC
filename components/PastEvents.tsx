@@ -36,7 +36,7 @@ export default function PastEvents() {
                         rel="noopener noreferrer"
                       >
                         <Image
-                          src={`https://i3.ytimg.com/vi/${event.yt_uuid}/maxresdefault.jpg`}
+                          src={`https://i3.ytimg.com/vi/${event.yt_uuid}/mqdefault.jpg`}
                           alt=""
                           fill
                           style={{
