@@ -17,7 +17,7 @@ export default function NextEvents({
         </h2>
 
         <div className="flex flex-wrap justify-center gap-6 sm:gap-16">
-          {lumaEvents.slice(1).map((event, index) => (
+          {lumaEvents.map((event, index) => (
             <div
               key={index}
               className="flex flex-col items-center w-72 gap-2 sm:gap-4"
