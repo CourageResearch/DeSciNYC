@@ -1,6 +1,11 @@
 "use server";
 
+import sgMail from "@sendgrid/mail";
+
 import { supabase } from "./supabaseClient";
+
+const ADMIN_EMAILS = ["kyritzb@gmail.com", "mfischer1000@gmail.com"];
+
 export const handleAddToEmailList = async (email: string): Promise<void> => {
   // Add to Supabase
   const { error } = await supabase
@@ -43,6 +48,12 @@ export const handleAddToEmailList = async (email: string): Promise<void> => {
     throw new Error("Failed to add email to Luma");
   }
 
+  console.log("Sending the admin emails");
+  await handleSendEmailAdmin(
+    "New DeSciNYC email list member!",
+    `A user signed up with the email ${email}! They are now in the luma list.`
+  );
+
   console.log("Successfully added email to Luma");
 };
 
@@ -71,3 +82,31 @@ export async function handleAddContactFormResponse(
 
   return { success: true, data };
 }
+
+export const handleSendEmailAdmin = async (
+  subject: string,
+  text: string
+): Promise<void> => {
+  "use server";
+
+  // Set the SendGrid API key
+  //@ts-ignore
+
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  console.log("Sending email!");
+
+  const msg = {
+    to: ADMIN_EMAILS,
+    from: "SVN <admin@svn.haus>", // Updated sender name
+    subject: subject,
+    text: text,
+  };
+
+  try {
+    let a = await sgMail.send(msg);
+    console.log("Sent email!");
+  } catch (error) {
+    console.error(error);
+  }
+};
