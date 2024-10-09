@@ -78,8 +78,8 @@ export default function MailingList() {
                 <div className="flex items-center space-x-2 text-green-800 mt-2">
                   <CheckCircleIcon className="h-12 w-12" />
                   <p>
-                    Thanks for joining! You've been successfully added to our
-                    mailing list.
+                    Thanks for joining! You&apos;ve been successfully added to
+                    our mailing list.
                   </p>
                 </div>
               )}

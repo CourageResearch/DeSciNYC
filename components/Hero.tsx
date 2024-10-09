@@ -12,16 +12,19 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
             <div className="flex flex-col lg:flex-row gap-2">
               <img
                 src="/images/descinyc-logo.png"
-                className="block lg:hidden w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0"
-                style={{ height: "auto" }}
+                className="block lg:hidden w-20 sm:w-28 md:w-32 lg:w-48 mx-auto lg:mx-0"
+                style={{ height: "auto", maxWidth: "min(15vw, 192px)" }}
               />
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center lg:text-left">
+              <h1
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-gray-900 text-center lg:text-left"
+                style={{ fontSize: "clamp(1.5rem, 4vw, 3.75rem)" }}
+              >
                 Welcome to Decentralized Science NYC.
               </h1>
               <img
                 src="/images/descinyc-logo.png"
-                className="hidden lg:block w-24 sm:w-36 lg:w-48 mx-auto lg:mx-0 lg:order-last"
-                style={{ height: "auto" }}
+                className="hidden lg:block w-20 sm:w-28 md:w-32 lg:w-48 mx-auto lg:mx-0 lg:order-last"
+                style={{ height: "auto", maxWidth: "min(15vw, 192px)" }}
               />
             </div>
 
