@@ -70,7 +70,7 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                     alt="Base"
                     width={100}
                     height={0}
-                    style={{ width: "auto", height: "30px" }}
+                    style={{ width: "auto", height: "26px" }}
                   />
                 </Link>
               </div>
