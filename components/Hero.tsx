@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { DateTime } from "luxon";
 import { LumaEvent } from "@/types/interfaces";
+import Link from "next/link";
 
 export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
   return (
@@ -49,6 +50,30 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                   .setZone("America/New_York")
                   .toLocaleString(DateTime.DATE_FULL)}
               </a>
+            </div>
+
+            <div className="mt-8 text-black flex flex-col items-center lg:items-start gap-2">
+              <h1>Supported By</h1>
+              <div className="flex flex-row gap-6 items-end">
+                <Link href="https://www.svn.haus" className="flex items-end">
+                  <Image
+                    src="/images/SVN.png"
+                    alt="SVN"
+                    width={100}
+                    height={0}
+                    style={{ width: "auto", height: "30px" }}
+                  />
+                </Link>
+                <Link href="https://www.base.org/" className="flex items-end">
+                  <Image
+                    src="/images/Base.png"
+                    alt="Base"
+                    width={100}
+                    height={0}
+                    style={{ width: "auto", height: "30px" }}
+                  />
+                </Link>
+              </div>
             </div>
 
             {/* Image div now comes after the button */}
