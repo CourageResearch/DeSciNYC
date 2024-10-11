@@ -56,7 +56,7 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
               <h1>Supported By</h1>
               <div className="flex flex-row gap-6 items-end">
                 <Link href="https://www.svn.haus" className="flex items-end">
-                  <Image
+                  <img
                     src="/images/SVN.png"
                     alt="SVN"
                     width={100}
@@ -65,7 +65,7 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                   />
                 </Link>
                 <Link href="https://www.base.org/" className="flex items-end">
-                  <Image
+                  <img
                     src="/images/Base.png"
                     alt="Base"
                     width={100}
