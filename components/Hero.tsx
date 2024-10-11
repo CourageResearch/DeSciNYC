@@ -52,16 +52,16 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
               </a>
             </div>
 
-            <div className="mt-8 text-black flex flex-col items-center lg:items-start gap-2">
+            <div className="mt-4 lg:mt-8 text-black flex flex-col items-center lg:items-start gap-0 lg:gap-2">
               <h1>Supported By</h1>
-              <div className="flex flex-row gap-6 items-end">
+              <div className="flex flex-row gap-6 items-end mt-2 sm:mt-0">
                 <Link href="https://www.svn.haus" className="flex items-end">
                   <img
                     src="/images/SVN.png"
                     alt="SVN"
                     width={100}
                     height={0}
-                    style={{ width: "auto", height: "30px" }}
+                    className="h-6 sm:h-8 md:h-10 lg:h-[30px] w-auto"
                   />
                 </Link>
                 <Link href="https://www.base.org/" className="flex items-end">
@@ -70,7 +70,7 @@ export default function Hero({ lumaEvent }: { lumaEvent: LumaEvent }) {
                     alt="Base"
                     width={100}
                     height={0}
-                    style={{ width: "auto", height: "24px" }}
+                    className="h-5 sm:h-6 md:h-8 lg:h-6 w-auto"
                   />
                 </Link>
               </div>
