@@ -42,39 +42,39 @@ export default function MailingList() {
               events, and updates from the decentralized science community in
               NYC.
             </p>
-            <div className="mt-6 flex w-full">
-              {!isSuccess ? (
-                <form
-                  onSubmit={handleSubmit}
-                  className="w-full flex flex-col sm:flex-row"
-                >
-                  <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="w-full sm:w-3/4 md:w-4/5 lg:w-auto lg:flex-grow rounded-md sm:rounded-l-md sm:rounded-r-none border-0 px-3.5 py-2 
+            <div className="mt-6 flex w-full flex-col gap-2">
+              <form
+                onSubmit={handleSubmit}
+                className="w-full flex flex-col sm:flex-row"
+              >
+                <input
+                  id="email-address"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="w-full sm:w-3/4 md:w-4/5 lg:w-auto lg:flex-grow rounded-md sm:rounded-l-md sm:rounded-r-none border-0 px-3.5 py-2 
         text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 
         focus:ring-2 focus:ring-inset focus:ring-indigo-500 
         sm:text-sm sm:leading-6"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-1/4 md:w-1/5 lg:w-auto mt-2 sm:mt-0 rounded-md sm:rounded-l-none sm:rounded-r-md 
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-1/4 md:w-1/5 lg:w-auto mt-2 sm:mt-0 rounded-md sm:rounded-l-none sm:rounded-r-md 
       bg-green-800 px-3.5 py-2 text-sm font-semibold 
       text-white shadow-sm hover:bg-green-700 focus-visible:outline 
       focus-visible:outline-2 focus-visible:outline-offset-2 
       focus-visible:outline-green-800"
-                  >
-                    {isSubmitting ? "Subscribing..." : "Subscribe"}
-                  </button>
-                </form>
-              ) : (
+                >
+                  {isSubmitting ? "Subscribing..." : "Subscribe"}
+                </button>
+              </form>
+
+              {isSuccess && (
                 <div className="flex items-center space-x-2 text-green-800 mt-2">
                   <CheckCircleIcon className="h-12 w-12" />
                   <p>
