@@ -53,13 +53,14 @@ export default function MailingList() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="w-full sm:w-3/4 md:w-4/5 lg:w-auto lg:flex-grow rounded-md sm:rounded-l-md sm:rounded-r-none border-0 px-3.5 py-2 
+                  className={`w-full sm:w-3/4 md:w-4/5 lg:w-auto lg:flex-grow rounded-md sm:rounded-l-md sm:rounded-r-none border-0 px-3.5 py-2 
         text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 
         focus:ring-2 focus:ring-inset focus:ring-indigo-500 
-        sm:text-sm sm:leading-6"
+        sm:text-sm sm:leading-6 ${isSubmitting ? "bg-gray-300" : ""}`}
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  disabled={isSubmitting}
                 />
                 <button
                   type="submit"
