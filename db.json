@@ -150,11 +150,27 @@
             "title": "DeSciNYC Climate Hackathon",
             "speaker": "NYC Open Data",
             "yt_uuid": "eVOHaQgM8Ls",
-            "luma_url": "https://lu.ma/descinyc21",
+            "luma_url": "https://lu.ma/hsei0g4n",
             "luma_id": "evt-kDeqLEVGoTY5TS0"
         },
         {
             "id": "22",
+            "title": "DeSciNYC Climate Hackathon",
+            "speaker": "NYC Open Data",
+            "yt_uuid": "eVOHaQgM8Ls",
+            "luma_url": "https://lu.ma/hsei0g4n",
+            "luma_id": "evt-kDeqLEVGoTY5TS0"
+        },
+        {
+            "id": "23",
+            "title": "DeSciNYC: Gene Therapy with Minicircle",
+            "speaker": "Dr. Ryan Rossner",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc22",
+            "luma_id": "evt-ztzM0ffTbwOPann"
+        },
+        {
+            "id": "24",
             "title": "Embryology",
             "speaker": "Noor Siddiqui",
             "yt_uuid": "",
