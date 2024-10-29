@@ -171,6 +171,14 @@
         },
         {
             "id": "24",
+            "title": "DeSciNYC: The Dark Side of Science",
+            "speaker": "Dr. Elisabeth Bik",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc24",
+            "luma_id": "evt-ZH5G7AnOQoh707F"
+        },        
+        {
+            "id": "25",
             "title": "Sexual Optimization: A Comprehensive Scientific Approach",
             "speaker": "Sheridan Clayborne",
             "yt_uuid": "",
@@ -178,7 +186,7 @@
             "luma_id": "evt-f5gDKBf649f8ZuH"
         },
         {
-            "id": "25",
+            "id": "26",
             "title": "Embryology",
             "speaker": "Noor Siddiqui",
             "yt_uuid": "",
