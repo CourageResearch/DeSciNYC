@@ -155,14 +155,6 @@
         },
         {
             "id": "22",
-            "title": "DeSciNYC Climate Hackathon",
-            "speaker": "NYC Open Data",
-            "yt_uuid": "eVOHaQgM8Ls",
-            "luma_url": "https://lu.ma/hsei0g4n",
-            "luma_id": "evt-kDeqLEVGoTY5TS0"
-        },
-        {
-            "id": "23",
             "title": "DeSciNYC: Gene Therapy with Minicircle",
             "speaker": "Dr. Ryan Rossner",
             "yt_uuid": "",
@@ -170,7 +162,7 @@
             "luma_id": "evt-ztzM0ffTbwOPann"
         },
         {
-            "id": "24",
+            "id": "23",
             "title": "DeSciNYC: The Dark Side of Science",
             "speaker": "Dr. Elisabeth Bik",
             "yt_uuid": "",
@@ -178,7 +170,7 @@
             "luma_id": "evt-ZH5G7AnOQoh707F"
         },        
         {
-            "id": "25",
+            "id": "24",
             "title": "Sexual Optimization: A Comprehensive Scientific Approach",
             "speaker": "Sheridan Clayborne",
             "yt_uuid": "",
@@ -186,7 +178,7 @@
             "luma_id": "evt-f5gDKBf649f8ZuH"
         },
         {
-            "id": "26",
+            "id": "25",
             "title": "Embryology",
             "speaker": "Noor Siddiqui",
             "yt_uuid": "",
