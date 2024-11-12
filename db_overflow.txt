@@ -14,3 +14,11 @@
             "luma_url": "https://lu.ma/descinyc30",
             "luma_id": "evt-dwMN2JapE341I9s"
         }
+                {
+            "id": "23",
+            "title": "DeSciNYC: The Dark Side of Science",
+            "speaker": "Dr. Elisabeth Bik",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc24",
+            "luma_id": "evt-ZH5G7AnOQoh707F"
+        }
