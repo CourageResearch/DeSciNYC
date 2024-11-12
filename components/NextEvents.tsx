@@ -16,7 +16,7 @@ export default function NextEvents({
           Upcoming Events.
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-16">
+        <div className="flex flex-wrap justify-start gap-6 sm:gap-16">
           {lumaEvents.map((event, index) => (
             <div
               key={index}

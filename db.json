@@ -1,5 +1,5 @@
 {
-    "next_event": "24",
+    "next_event": "23",
     "events": [
         {
             "id": "1",
@@ -163,14 +163,6 @@
         },
         {
             "id": "23",
-            "title": "DeSciNYC: Gene Therapy with Minicircle",
-            "speaker": "Dr. Ryan Rossner",
-            "yt_uuid": "HKFLjcyZlSo",
-            "luma_url": "https://lu.ma/descinyc22",
-            "luma_id": "evt-ztzM0ffTbwOPann"
-        },
-        {
-            "id": "24",
             "title": "DeSciNYC: Sceince and Prediction Markets",
             "speaker": "",
             "yt_uuid": "",
