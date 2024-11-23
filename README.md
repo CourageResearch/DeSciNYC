@@ -15,7 +15,6 @@ This project is a web application for DeSciNYC, a community that brings together
 The following environment variables are required:
 
 - `LUMA_API_KEY`: The API key for Luma.
-- `NEXT_PUBLIC_FORMSPREE_FORM_ID`: The Formspree form ID for the newsletter subscription form.
 
 ## Links
 

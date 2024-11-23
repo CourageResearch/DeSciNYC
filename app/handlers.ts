@@ -1,7 +1,6 @@
 "use server";
 
 import sgMail from "@sendgrid/mail";
-
 import { supabase } from "./supabaseClient";
 
 const ADMIN_EMAILS = ["kyritzb@gmail.com", "mfischer1000@gmail.com"];
@@ -110,3 +109,4 @@ export const handleSendEmailAdmin = async (
     console.error(error);
   }
 };
+
