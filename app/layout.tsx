@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-
+ 
   icons: [
     {
       url: "/android-chrome-192x192.png",
