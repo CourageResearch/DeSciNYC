@@ -1,5 +1,5 @@
 {
-    "next_event": "23",
+    "next_event": "24",
     "events": [
         {
             "id": "1",
@@ -163,11 +163,28 @@
         },
         {
             "id": "23",
-            "title": "DeSciNYC: Sceince and Prediction Markets",
-            "speaker": "",
-            "yt_uuid": "",
+            "title": "DeSciNYC: Science and Prediction Markets",
+            "speaker": "Professor Robin Hanson",
+            "yt_uuid": "q5yXfrq1zjs",
             "luma_url": "https://lu.ma/descinyc24",
             "luma_id": "evt-ZH5G7AnOQoh707F"
+        },
+        {
+            "id": "24",
+            "title": "DeSciNYC: The Science of Waterbears",
+            "speaker": "Dr. Daniele Mattei",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc25",
+            "luma_id": "evt-XYi6JW7FBOynRqA"
+        },
+        {
+            "id": "25",
+            "title": "DeSciNYC: When AI Eats Science with Siraj Raval",
+            "speaker": "Siraj Raval",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc26",
+            "luma_id": "evt-XRh3ndzTg0b0kww"
         }
+
     ]
 }
