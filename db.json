@@ -1,5 +1,5 @@
 {
-    "next_event": "24",
+    "next_event": "25",
     "events": [
         {
             "id": "1",
@@ -173,7 +173,7 @@
             "id": "24",
             "title": "DeSciNYC: The Science of Waterbears",
             "speaker": "Dr. Daniele Mattei",
-            "yt_uuid": "",
+            "yt_uuid": "rsZkxYIfbtc",
             "luma_url": "https://lu.ma/descinyc25",
             "luma_id": "evt-XYi6JW7FBOynRqA"
         },
