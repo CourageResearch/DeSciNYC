@@ -185,6 +185,14 @@
             "luma_url": "https://lu.ma/descinyc26",
             "luma_id": "evt-XRh3ndzTg0b0kww"
         }
-
+        ,
+        {
+            "id": "25",
+            "title": "DeSciNYC: The Data Science of Dating with Dan Kras",
+            "speaker": "Dan Kras",
+            "yt_uuid": "",
+            "luma_url": "https://lu.ma/descinyc27",
+            "luma_id": "evt-HTnDvhZmyjZUHtr"
+        }
     ]
 }
