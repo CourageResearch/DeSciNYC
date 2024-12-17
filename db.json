@@ -1,5 +1,5 @@
 {
-    "next_event": "25",
+    "next_event": "26",
     "events": [
         {
             "id": "1",
@@ -181,13 +181,13 @@
             "id": "25",
             "title": "DeSciNYC: When AI Eats Science with Siraj Raval",
             "speaker": "Siraj Raval",
-            "yt_uuid": "",
+            "yt_uuid": "mxRgbciNdO8",
             "luma_url": "https://lu.ma/descinyc26",
             "luma_id": "evt-XRh3ndzTg0b0kww"
         }
         ,
         {
-            "id": "25",
+            "id": "26",
             "title": "DeSciNYC: The Data Science of Dating with Dan Kras",
             "speaker": "Dan Kras",
             "yt_uuid": "",
