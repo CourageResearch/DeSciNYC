@@ -17,16 +17,13 @@ const Store = () => {
             className="border border-[#202020] p-4"
           />
           <div className="grid grid-cols-4 gap-2">
-            {[...Array(4)].map((_, i) => (
-              <Image
-                key={i}
-                src="/images/t-shirt.png"
-                alt="Event Image"
-                width={200}
-                height={200}
-                className="border border-[#202020] p-4"
-              />
-            ))}
+            <Image
+              src="/images/t_shirt_back.webp"
+              alt="Event Image"
+              width={200}
+              height={200}
+              className="border border-[#202020] p-4"
+            />
           </div>
         </div>
         <div className="flex flex-col justify-center gap-2 w-full md:w-3/5">
