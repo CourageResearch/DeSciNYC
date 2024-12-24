@@ -1,33 +1,36 @@
-# DeSciNYC
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This project is a web application for DeSciNYC, a community that brings together people who are passionate about the intersection of design and science.
+## Getting Started
 
-## Features
+First, run the development server:
 
-- Event information: Users can find information about upcoming and past events.
-- Newsletter subscription: Users can subscribe to the DeSciNYC newsletter to receive the latest events, news, and resources.
-- Social media links: Users can access DeSciNYC's social media platforms including Instagram, Twitter, Facebook, LinkedIn, GitHub, YouTube, and TikTok.
-- Donation and sponsorship: Users can support DeSciNYC through donations or sponsorships.
-- Shop: Users can purchase DeSciNYC merchandise from the shop.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Environment Variables
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The following environment variables are required:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- `LUMA_API_KEY`: The API key for Luma.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Links
+## Learn More
 
-The URLs for various resources are stored in `links.json`.
+To learn more about Next.js, take a look at the following resources:
 
-## Components
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The main component in this project is `Footer.tsx`, which contains the footer of the web application. The footer includes links to events, the newsletter subscription form, and social media platforms.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## How to Run
+## Deploy on Vercel
 
-To run this project, you need to have Node.js and npm installed. After cloning the repository, install the dependencies with `npm install`. Then, start the development server with `npm run dev`.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## License
-
-This project is licensed under the MIT License.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

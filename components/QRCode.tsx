@@ -3,20 +3,18 @@
 import { useQRCode } from "next-qrcode";
 
 export default function QRCode({ url }: { url: string }) {
-  const { Canvas } = useQRCode();
+  const { SVG } = useQRCode();
 
   return (
-    <div className="w-full max-w-[300px] aspect-square mx-auto">
-      <Canvas
+    <div className="w-40 border border-[#202020] p-4 mt-2">
+      <SVG
         text={url}
         options={{
-          errorCorrectionLevel: "M",
           margin: 0,
-          scale: 3,
-          width: 300,
+          width: 20,
           color: {
-            dark: "#14532d",
-            light: "#4ade80",
+            dark: "#0FA711",
+            light: "#000000",
           },
         }}
       />

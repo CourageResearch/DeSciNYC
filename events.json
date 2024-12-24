@@ -1,0 +1,189 @@
+{
+  "next_event": "26",
+  "events": [
+    {
+      "id": "1",
+      "title": "Mushroom Observer",
+      "speaker": "Nathan Wilson",
+      "yt_uuid": "QVZPy7AvuuA",
+      "luma_url": "https://lu.ma/descinyc1",
+      "luma_id": "evt-Irx8AwrXvLe08Rb"
+    },
+    {
+      "id": "2",
+      "title": "HairDAO",
+      "speaker": "Andrew Bakst & Andrew Verbinnen",
+      "yt_uuid": "BvL1BfY8i9I",
+      "luma_url": "https://lu.ma/descinyc2",
+      "luma_id": "evt-eXpED4eMi3SqccF"
+    },
+    {
+      "id": "3",
+      "title": "Blinded Studies & Bees",
+      "speaker": "Balázs Szigeti & Tyler Quigley",
+      "yt_uuid": "_XAoMJFEEEk",
+      "luma_url": "https://lu.ma/descinyc3",
+      "luma_id": "evt-AfuMCYGHspQQ7RT"
+    },
+    {
+      "id": "4",
+      "title": "AI in Medicine",
+      "speaker": "Martin Shkreli",
+      "yt_uuid": "j-A6uu22QYQ",
+      "luma_url": "https://lu.ma/descinyc4",
+      "luma_id": "evt-AoCjUCORkipjsLD"
+    },
+    {
+      "id": "5",
+      "title": "NFTs in Science",
+      "speaker": "William Entriken",
+      "yt_uuid": "oYUB_ALbW3Y",
+      "luma_url": "https://lu.ma/descinyc5",
+      "luma_id": "evt-rtPgUvrtzA764wt"
+    },
+    {
+      "id": "6",
+      "title": "ResearchHub",
+      "speaker": "Patrick Joyce",
+      "yt_uuid": "i26zF9SeMSU",
+      "luma_url": "https://lu.ma/descinyc6",
+      "luma_id": "evt-kUtP7iFeZXO5nPD"
+    },
+    {
+      "id": "7",
+      "title": "Psi Combinator Demo Day",
+      "speaker": "Many Speakers",
+      "yt_uuid": "lyf_x1mtlU0",
+      "luma_url": "https://lu.ma/descinyc7",
+      "luma_id": "evt-MNjgxlNPD1U3B9V"
+    },
+    {
+      "id": "8",
+      "title": "Longevity",
+      "speaker": "Dr. Matt Kaeberlein, Kai Micah Mills, Dr. Alex Colville",
+      "yt_uuid": "Zlq2tXRm_RI",
+      "luma_url": "https://lu.ma/descinyc8",
+      "luma_id": "evt-DOSQfGvD6tLrIYX"
+    },
+    {
+      "id": "10",
+      "title": "Tissue Replacement",
+      "speaker": "Professor Jean Hébert",
+      "yt_uuid": "KTpbTopiX64",
+      "luma_url": "https://lu.ma/descinyc10",
+      "luma_id": "evt-O7GlC1bcMM7GUuL"
+    },
+    {
+      "id": "11",
+      "title": "Focused Ultrasound & Longevity using AI",
+      "speaker": "Professor Vincent Ferrera & Siraj Raval",
+      "yt_uuid": "fRuC5uNzPuw",
+      "luma_url": "https://lu.ma/descinyc11",
+      "luma_id": "evt-O82TBtCU96kD4Zx"
+    },
+    {
+      "id": "12",
+      "title": "The Enhanced Games",
+      "speaker": "Aron d'Souza",
+      "yt_uuid": "WXOhKieQocY",
+      "luma_url": "https://lu.ma/descinyc12",
+      "luma_id": "evt-CWVN33phUcvEO55"
+    },
+    {
+      "id": "13",
+      "title": "Prophetic AI",
+      "speaker": "Eric Wollberg",
+      "yt_uuid": "NsPC6rodw8U",
+      "luma_url": "https://lu.ma/descinyc13",
+      "luma_id": "evt-OZY2Z8sy3J5jO9K"
+    },
+    {
+      "id": "14",
+      "title": "Bioelectricity",
+      "speaker": "Professor Michael Levin",
+      "yt_uuid": "N4uE5jIG1Co",
+      "luma_url": "https://lu.ma/descinyc14",
+      "luma_id": "evt-a0jAGi6FAyM1jbi"
+    },
+    {
+      "id": "16",
+      "title": "Microbiome",
+      "speaker": "Scott Hickle",
+      "yt_uuid": "nhfCkI6jvzA",
+      "luma_url": "https://lu.ma/descinyc16",
+      "luma_id": "evt-VpbE622tBokAlzp"
+    },
+    {
+      "id": "17",
+      "title": "The Science of Presidential Elections",
+      "speaker": "David Shor",
+      "yt_uuid": "AcRNChfcw-I",
+      "luma_url": "https://lu.ma/descinyc17",
+      "luma_id": "evt-adPa4YgyXz8dTBE"
+    },
+    {
+      "id": "18",
+      "title": "Longevity",
+      "speaker": "Bryan Johnson",
+      "yt_uuid": "FrIaTV23ZO0",
+      "luma_url": "https://lu.ma/descinyc18",
+      "luma_id": "evt-Mi2MuvKPMISbKvt"
+    },
+    {
+      "id": "20",
+      "title": "Ketamine: Brainwide Recording and the Neurobiology of Dissociation",
+      "speaker": "Dr. Isaac V Kauvar",
+      "yt_uuid": "eRYe_7FUmzM",
+      "luma_url": "https://lu.ma/descinyc21",
+      "luma_id": "evt-kDeqLEVGoTY5TS0"
+    },
+    {
+      "id": "21",
+      "title": "DeSciNYC Climate Hackathon",
+      "speaker": "NYC Open Data",
+      "yt_uuid": "eVOHaQgM8Ls",
+      "luma_url": "https://lu.ma/hsei0g4n",
+      "luma_id": "evt-kDeqLEVGoTY5TS0"
+    },
+    {
+      "id": "22",
+      "title": "DeSciNYC: Gene Therapy with Minicircle",
+      "speaker": "Dr. Ryan Rossner",
+      "yt_uuid": "HKFLjcyZlSo",
+      "luma_url": "https://lu.ma/descinyc22",
+      "luma_id": "evt-ztzM0ffTbwOPann"
+    },
+    {
+      "id": "23",
+      "title": "DeSciNYC: Science and Prediction Markets",
+      "speaker": "Professor Robin Hanson",
+      "yt_uuid": "q5yXfrq1zjs",
+      "luma_url": "https://lu.ma/descinyc24",
+      "luma_id": "evt-ZH5G7AnOQoh707F"
+    },
+    {
+      "id": "24",
+      "title": "DeSciNYC: The Science of Waterbears",
+      "speaker": "Dr. Daniele Mattei",
+      "yt_uuid": "rsZkxYIfbtc",
+      "luma_url": "https://lu.ma/descinyc25",
+      "luma_id": "evt-XYi6JW7FBOynRqA"
+    },
+    {
+      "id": "25",
+      "title": "DeSciNYC: When AI Eats Science with Siraj Raval",
+      "speaker": "Siraj Raval",
+      "yt_uuid": "mxRgbciNdO8",
+      "luma_url": "https://lu.ma/descinyc26",
+      "luma_id": "evt-XRh3ndzTg0b0kww"
+    },
+    {
+      "id": "26",
+      "title": "DeSciNYC: The Data Science of Dating with Dan Kras",
+      "speaker": "Dan Kras",
+      "yt_uuid": "",
+      "luma_url": "https://lu.ma/descinyc27",
+      "luma_id": "evt-HTnDvhZmyjZUHtr"
+    }
+  ]
+}
