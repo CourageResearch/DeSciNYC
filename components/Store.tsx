@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 import Heading from "./ui/heading";
 import Image from "next/image";
@@ -38,13 +39,15 @@ const Store = () => {
           </p>
           <p className="text-muted-foreground font-semibold uppercase">Color</p>
           <div className="size-12 border border-[#202020] aspect-square bg-zinc-800" />
-          <Button
-            variant="green"
-            size="lg"
-            className="h-12 mt-4 text-xl font-bold w-80 bg-[#0FA711]/60 text-white"
-          >
-            ORDER
-          </Button>
+          <Link href="https://descinyc.creator-spring.com/" target="_blank">
+            <Button
+              variant="green"
+              size="lg"
+              className="h-12 mt-4 text-xl font-bold w-80 bg-[#0FA711]/60 text-white"
+            >
+              ORDER
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

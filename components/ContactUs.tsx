@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Footer from "./Footer";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+// import { Button } from "./ui/button";
+// import { Input } from "./ui/input";
+// import { Textarea } from "./ui/textarea";
 
 const ContactUs = () => {
   return (
     <div className="bg-green-950/60">
       <div className="max-w-[1100px] mx-auto flex flex-col py-12 px-4 md:px-0">
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
+          {/* <div className="flex flex-col gap-4 w-full md:w-1/2">
             <h4 className="uppercase font-Jersey10 text-3xl">Contact Us</h4>
             <p>
               We&apos;d love to hear from you. Fill out the form below and
@@ -35,8 +35,8 @@ const ContactUs = () => {
             <Button variant="green" size="lg" className="w-80">
               Send
             </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full md:w-1/2">
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             <div className="flex flex-col gap-4">
               <h4 className="uppercase font-Jersey10 text-3xl">
                 Stay in touch
