@@ -13,7 +13,7 @@ import fs from "fs";
 import path from "path";
 const readdir = promisify(fs.readdir);
 
-export const getGalleryPhotos = async () => {
+const getGalleryPhotos = async () => {
   try {
     const directoryPath = path.join(
       process.cwd(),
@@ -37,7 +37,7 @@ export const getGalleryPhotos = async () => {
   }
 };
 
-export const getLumaEvent = async ({ event_id }: { event_id: string }) => {
+const getLumaEvent = async ({ event_id }: { event_id: string }) => {
   if (!process.env.LUMA_API_KEY) {
     throw new Error("LUMA_API_KEY is not defined");
   }
