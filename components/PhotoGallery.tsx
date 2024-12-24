@@ -1,34 +1,59 @@
 "use client";
 
-// import "~react-image-gallery/styles/scss/image-gallery.scss";
-// import "~react-image-gallery/styles/css/image-gallery.css";
-// import "react-image-gallery/styles/css/image-gallery.css";
-
-import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
+import Heading from "./ui/heading";
 import "react-image-gallery/styles/css/image-gallery.css";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
-interface PhotoGalleryProps {
-  images: ReactImageGalleryItem[];
-}
+const ImageGallery = dynamic(() => import("react-image-gallery"), {
+  ssr: false,
+});
 
-export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ images }) => {
-  // const images = imageLinks.map(link => ({
-  //     original: link,
-  //     thumbnail: link,
-  // }));
-
+const PhotoGallery = ({
+  images,
+}: {
+  images: { original: string; thumbnail: string }[];
+}) => {
   return (
-    <>
-      <div id="gallery">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            Image Gallery.
-          </h2> */}
-          <div className="mt-8">
-            <ImageGallery thumbnailPosition="bottom" items={images} />
-          </div>
-        </div>
+    <div
+      className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0"
+      id="gallery"
+    >
+      <Heading title="Photo Gallery" />
+      <div className="flex flex-col gap-4">
+        <ImageGallery
+          thumbnailPosition="bottom"
+          items={images}
+          useBrowserFullscreen={false}
+          showPlayButton={false}
+          showFullscreenButton={false}
+          additionalClass="image-gallery-custom"
+          renderItem={(item) => (
+            <div className="aspect-video w-full relative">
+              <Image
+                src={item.original as string}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
+          )}
+          renderThumbInner={(item) => (
+            <div className="aspect-video w-full relative">
+              <Image
+                src={item.thumbnail as string}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 80vw"
+              />
+            </div>
+          )}
+        />
       </div>
-    </>
+    </div>
   );
 };
+
+export default PhotoGallery;

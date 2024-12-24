@@ -39,3 +39,5 @@ next-env.d.ts
 public/gallery/fullsize/
 # /gallery/small/
 # /gallery/thumbnails/
+
+.env
