@@ -26,13 +26,14 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
               month: "long",
               day: "numeric",
               year: "numeric",
-            })}
+            })}{" "}
             at{" "}
             {new Date(events[0].event.start_at).toLocaleTimeString("en-US", {
               hour: "numeric",
               minute: "numeric",
               hour12: true,
-            })}
+              timeZone: "America/New_York",
+            })}{" "}
             in NYC
           </h5>
           <p className="text-muted-foreground font-semibold">
