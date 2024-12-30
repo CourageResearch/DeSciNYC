@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Heading from "./ui/heading";
-import db from "../events.json";
 import Link from "next/link";
+import Image from "next/image";
+import db from "../events.json";
+import Heading from "./ui/heading";
 
 const PastEvents = () => {
   return (
@@ -9,7 +9,7 @@ const PastEvents = () => {
       <Heading title="Past Events" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {db.events
-          .filter((event) => event.id !== db.next_event)
+          .filter((event) => event.id !== db.next_event && event.yt_uuid) // Only show events with YouTube videos (past events)
           .reverse()
           .map((event) => (
             <Link

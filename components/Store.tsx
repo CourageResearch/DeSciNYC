@@ -1,31 +1,14 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Heading from "./ui/heading";
-import Image from "next/image";
+import StoreGalleryComponent from "./StoreGalleryComponent";
 
 const Store = () => {
   return (
     <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
       <Heading title="Store" />
       <div className="flex flex-col md:flex-row border border-[#202020] p-4 md:p-8 gap-4">
-        <div className="flex flex-col gap-2 items-center justify-center w-full md:w-2/5">
-          <Image
-            src="/images/t-shirt.png"
-            alt="Event Image"
-            width={400}
-            height={400}
-            className="border border-[#202020] p-4"
-          />
-          <div className="grid grid-cols-4 gap-2">
-            <Image
-              src="/images/t_shirt_back.webp"
-              alt="Event Image"
-              width={200}
-              height={200}
-              className="border border-[#202020] p-4"
-            />
-          </div>
-        </div>
+        <StoreGalleryComponent />
         <div className="flex flex-col justify-center gap-2 w-full md:w-3/5">
           <h4 className="font-Jersey10 text-4xl">DeSciNYC T-Shirt</h4>
           <h5 className="text-[#0FA711] text-2xl font-semibold">$19.38</h5>
