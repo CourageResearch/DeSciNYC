@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
-import { CheckIcon, XIcon } from "lucide-react";
+import { CheckIcon, Loader2, XIcon } from "lucide-react";
 import HorizontalLines from "./ui/HorizontalLines";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormField, FormItem, FormMessage } from "./ui/form";
@@ -26,9 +26,12 @@ const SubscribeComponent = () => {
     text: string;
     type: "success" | "error";
   } | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      setIsLoading(true);
+
       const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: {
@@ -54,6 +57,8 @@ const SubscribeComponent = () => {
         text: "An error occurred while subscribing",
         type: "error",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -97,8 +102,13 @@ const SubscribeComponent = () => {
                 variant="green"
                 className="w-40 font-bold text-white h-10 z-20"
                 type="submit"
+                disabled={isLoading}
               >
-                Subscribe
+                {isLoading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  "Subscribe"
+                )}
               </Button>
             </form>
           </Form>
