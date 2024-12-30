@@ -1,9 +1,9 @@
+import Link from "next/link";
+import QRCode from "./QRCode";
 import Image from "next/image";
 import Heading from "./ui/heading";
 import { Button } from "./ui/button";
 import { LumaEvent } from "@/types/events";
-import Link from "next/link";
-import QRCode from "./QRCode";
 
 const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
   // Parse schedule from description
@@ -76,33 +76,35 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
       </div>
 
       {events.length > 1 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20 md:mt-40">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20">
           {events.slice(1).map((event, index) => (
             <div
               key={index}
-              className="flex flex-col border border-[#202020] gap-2 p-4"
+              className="flex flex-col border border-[#202020] gap-2 p-4 h-full"
             >
-              <h3 className="font-Jersey15 text-3xl">{event.event.name}</h3>
-              <div className="bg-[#2A2A2A] h-[2px] w-full" />
-              <p className="text-2xl text-[#0FA711] font-Jersey10">
-                {new Date(event.event.start_at).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}{" "}
-                at{" "}
-                {new Date(event.event.start_at).toLocaleTimeString("en-US", {
-                  hour: "numeric",
-                  minute: "numeric",
-                  hour12: true,
-                })}{" "}
-                EST in NYC
-              </p>
-              <Link href={event.event.url} target="_blank">
+              <div className="flex flex-col flex-grow">
+                <h3 className="font-Jersey15 text-3xl">{event.event.name}</h3>
+                <div className="bg-[#2A2A2A] h-[2px] w-full" />
+                <p className="text-2xl text-[#0FA711] font-Jersey10">
+                  {new Date(event.event.start_at).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}{" "}
+                  at{" "}
+                  {new Date(event.event.start_at).toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "numeric",
+                    hour12: true,
+                  })}{" "}
+                  EST in NYC
+                </p>
+              </div>
+              <Link href={event.event.url} target="_blank" className="w-min">
                 <Button
                   variant="green"
                   size="lg"
-                  className="w-32 mt-12 text-lg font-bold"
+                  className="w-32 text-lg font-bold"
                 >
                   RSVP
                 </Button>
