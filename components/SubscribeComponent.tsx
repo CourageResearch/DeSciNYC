@@ -90,6 +90,7 @@ const SubscribeComponent = () => {
                     <Input
                       {...field}
                       type="email"
+                      disabled={isLoading}
                       placeholder="Enter your email"
                       className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full relative z-20"
                       required
