@@ -40,11 +40,15 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
             Presented by: DeSciNYC, SS, Binance, Movement and Arch Lending.
           </p>
           <QRCode url={events[0].event.url + "?utm_source=qr"} />
-          <Link href={events[0].event.url} target="_blank">
+          <Link
+            href={events[0].event.url}
+            target="_blank"
+            className="w-min mt-4"
+          >
             <Button
               variant="green"
               size="lg"
-              className="h-12 mt-4 text-xl font-bold w-full md:w-96 bg-[#0FA711]/60 text-white"
+              className="h-12 text-xl font-bold w-full md:w-96 bg-[#0FA711]/60 text-white"
             >
               RSVP
             </Button>
