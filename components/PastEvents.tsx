@@ -27,7 +27,7 @@ const PastEvents = () => {
               </div>
               <div className="flex flex-col justify-start items-start gap-4 p-4 flex-grow">
                 <h3 className="text-lg font-bold line-clamp-2">
-                  DeSciNYC: {event.title}
+                  {event.title}
                 </h3>
                 <p className="text-sm text-gray-500">{event.speaker}</p>
                 <p className="text-sm uppercase text-white">Luma event</p>
