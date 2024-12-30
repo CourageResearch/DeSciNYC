@@ -12,27 +12,40 @@ const PastEvents = () => {
           .filter((event) => event.id !== db.next_event && event.yt_uuid) // Only show events with YouTube videos (past events)
           .reverse()
           .map((event) => (
-            <Link
+            <div
               key={event.id}
-              href={`https://www.youtube.com/watch?v=${event.yt_uuid}`}
               className="flex flex-col border border-[#202020] h-full border-b-4 border-r-4"
             >
-              <div className="relative w-full aspect-video">
+              <Link
+                href={`https://www.youtube.com/watch?v=${event.yt_uuid}`}
+                className="relative w-full aspect-video"
+                target="_blank"
+              >
                 <Image
                   src={`https://i3.ytimg.com/vi/${event.yt_uuid}/sddefault.jpg`}
                   alt={event.title}
                   fill
                   className="object-cover"
                 />
-              </div>
+              </Link>
               <div className="flex flex-col justify-start items-start gap-4 p-4 flex-grow">
-                <h3 className="text-lg font-bold line-clamp-2">
-                  {event.title}
-                </h3>
+                <Link
+                  href={`https://www.youtube.com/watch?v=${event.yt_uuid}`}
+                  target="_blank"
+                  className="text-lg font-bold line-clamp-2 hover:text-[#0FA711] transition-all ease-in-out duration-300"
+                >
+                  DeSciNYC: {event.title}
+                </Link>
                 <p className="text-sm text-gray-500">{event.speaker}</p>
-                <p className="text-sm uppercase text-white">Luma event</p>
+                <Link
+                  href={event.luma_url}
+                  target="_blank"
+                  className="text-sm uppercase text-white hover:underline transition-all duration-300 ease-in-out"
+                >
+                  Luma event
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
       </div>
     </div>
