@@ -34,7 +34,7 @@ const PastEvents = () => {
                   target="_blank"
                   className="text-lg font-bold line-clamp-2 hover:text-[#0FA711] transition-all ease-in-out duration-300"
                 >
-                  DeSciNYC: {event.title}
+                  {event.title}
                 </Link>
                 <p className="text-sm text-gray-500">{event.speaker}</p>
                 <Link
