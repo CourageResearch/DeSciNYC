@@ -37,13 +37,22 @@ const PastEvents = () => {
                   {event.title}
                 </Link>
                 <p className="text-sm text-gray-500">{event.speaker}</p>
-                <Link
-                  href={event.luma_url}
-                  target="_blank"
-                  className="text-sm uppercase text-white hover:underline transition-all duration-300 ease-in-out"
-                >
-                  Luma event
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href={`https://www.youtube.com/watch?v=${event.yt_uuid}`}
+                    target="_blank"
+                    className="text-sm uppercase text-white hover:underline transition-all duration-300 ease-in-out"
+                  >
+                    Video
+                  </Link>
+                  <Link
+                    href={event.luma_url}
+                    target="_blank"
+                    className="text-sm uppercase text-white hover:underline transition-all duration-300 ease-in-out"
+                  >
+                    Luma event
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
