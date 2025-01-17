@@ -75,8 +75,7 @@ const LandignPage = async () => {
       (a, b) =>
         new Date(a.event.start_at).getTime() -
         new Date(b.event.start_at).getTime()
-    )
-    .slice(0, 3);
+    );
 
   if (!event) {
     throw new Error("Event not found");
