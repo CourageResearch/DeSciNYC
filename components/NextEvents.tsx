@@ -15,8 +15,6 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
       return { time, activity };
     });
 
-  console.log(events);
-
   return (
     <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
       <Heading title="Next Events" />
