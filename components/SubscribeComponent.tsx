@@ -51,6 +51,7 @@ const SubscribeComponent = () => {
         text: "Successfully subscribed to mailing list!",
         type: "success",
       });
+      form.reset(); // Reset the form after successful subscription
     } catch (error) {
       console.error("Error subscribing to mailing list:", error);
       setMessage({
