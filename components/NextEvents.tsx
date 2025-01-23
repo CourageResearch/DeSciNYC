@@ -6,8 +6,27 @@ import { Button } from "./ui/button";
 import { LumaEvent } from "@/types/events";
 
 const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
+  // Filter out past events
+  const upcomingEvents = events.filter(
+    (event) => new Date(event.event.start_at) > new Date()
+  );
+
+  // If no upcoming events, show a message
+  if (upcomingEvents.length === 0) {
+    return (
+      <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
+        <Heading title="Next Events" />
+        <div className="border border-[#202020] p-4">
+          <p className="text-xl">
+            No upcoming events scheduled. Check back soon!
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   // Parse schedule from description
-  const scheduleLines = events[0].event.description
+  const scheduleLines = upcomingEvents[0].event.description
     .split("\n")
     .filter((line) => line.includes("PM:"))
     .map((line) => {
@@ -20,28 +39,36 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
       <Heading title="Next Events" />
       <div className="flex flex-col md:flex-row border border-[#202020] p-4 gap-4">
         <div className="flex flex-col justify-center gap-2 w-full md:w-3/5">
-          <h4 className="font-Jersey10 text-4xl">{events[0].event.name}</h4>
+          <h4 className="font-Jersey10 text-4xl">
+            {upcomingEvents[0].event.name}
+          </h4>
           <h5 className="text-[#0FA711] text-xl font-semibold">
-            {new Date(events[0].event.start_at).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}{" "}
+            {new Date(upcomingEvents[0].event.start_at).toLocaleDateString(
+              "en-US",
+              {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              }
+            )}{" "}
             at{" "}
-            {new Date(events[0].event.start_at).toLocaleTimeString("en-US", {
-              hour: "numeric",
-              minute: "numeric",
-              hour12: true,
-              timeZone: "America/New_York",
-            })}{" "}
+            {new Date(upcomingEvents[0].event.start_at).toLocaleTimeString(
+              "en-US",
+              {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+                timeZone: "America/New_York",
+              }
+            )}{" "}
             in NYC
           </h5>
           <p className="text-muted-foreground font-semibold">
             Presented by: DeSciNYC, SS, Binance, Movement and Arch Lending.
           </p>
-          <QRCode url={events[0].event.url + "?utm_source=qr"} />
+          <QRCode url={upcomingEvents[0].event.url + "?utm_source=qr"} />
           <Link
-            href={events[0].event.url}
+            href={upcomingEvents[0].event.url}
             target="_blank"
             className="w-min mt-4"
           >
@@ -56,7 +83,7 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
         </div>
         <div className="flex flex-col gap-2 items-center justify-center w-full md:w-2/5">
           <Image
-            src={events[0].event.cover_url}
+            src={upcomingEvents[0].event.cover_url}
             alt="Event Image"
             width={400}
             height={400}
@@ -79,9 +106,9 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
         ))}
       </div>
 
-      {events.length > 1 && (
+      {upcomingEvents.length > 1 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-20">
-          {events.slice(1).map((event, index) => (
+          {upcomingEvents.slice(1).map((event, index) => (
             <div
               key={index}
               className="flex flex-col border border-[#202020] gap-2 p-4 h-full"
