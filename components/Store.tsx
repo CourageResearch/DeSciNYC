@@ -14,8 +14,8 @@ const Store = () => {
           <h5 className="text-[#0FA711] text-2xl font-semibold">$19.38</h5>
           <p className="text-muted-foreground font-semibold">
             Introducing the {"DeSciNYC T-Shirt"}- the ultimate fusion of science
-            and NewYork City vibes! Unleash your inner urban explorer whether
-            tour navigating the concre jungle or the wet lab
+            and New York City vibes! Unleash your inner urban explorer whether
+            your navigating the concrete jungle or the wet lab
           </p>
           <p className="text-muted-foreground font-semibold uppercase">Color</p>
           <div className="size-12 border border-[#202020] aspect-square bg-zinc-800" />

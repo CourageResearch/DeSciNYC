@@ -32,7 +32,7 @@ const SupportUs = () => {
           <h3 className="font-Jersey15 text-3xl uppercase">Sponsorship</h3>
           <div className="bg-[#2A2A2A] h-[2px] w-full" />
           <p className="text-xl text-muted-foreground font-Jersey10">
-            Help us make DeSciNYC even better with fundas that will go toward
+            Help us make DeSciNYC even better with funds that will go toward
             space and food.
           </p>
           <Link

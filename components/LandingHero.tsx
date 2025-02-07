@@ -48,7 +48,7 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
             <p className="mx-4 text-stone-400">
               A monthly NYC meetup for science enthusiasts to learn, share
               projects, and socialize. Science is for everyone, and we try to
-              makeit accesible to all.
+              make it accessible to all.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 mx-4 mt-8 md:mt-28">
               <Link
