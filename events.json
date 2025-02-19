@@ -1,5 +1,5 @@
 {
-  "next_event": "28",
+  "next_event": "29",
   "events": [
     {
       "id": "1",
@@ -205,7 +205,7 @@
       "id": "28",
       "title": "The Science of Supplements",
       "speaker": "Dr. Kirten Parekh",
-      "yt_uuid": "",
+      "yt_uuid": "frjBENRvmF8",
       "luma_url": "https://lu.ma/descinyc29",
       "luma_id": "evt-HuSDHlvmycUIIiE"
     },
