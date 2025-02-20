@@ -52,6 +52,15 @@ const PastEvents = () => {
                   >
                     Luma event
                   </Link>
+                  {event.slides && (
+                    <Link
+                      href={`/slides/${event.slides}`}
+                      target="_blank"
+                      className="text-sm uppercase text-white hover:underline transition-all duration-300 ease-in-out"
+                    >
+                      Slides
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
