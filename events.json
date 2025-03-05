@@ -1,5 +1,5 @@
 {
-  "next_event": "29",
+  "next_event": "30",
   "events": [
     {
       "id": "1",
@@ -214,9 +214,17 @@
       "id": "29",
       "title": "The Billion Oyster Project",
       "speaker": "Zeke King Phillips & Cody Herrmann",
-      "yt_uuid": "",
+      "yt_uuid": "LnB9SEUxhac",
       "luma_url": "https://lu.ma/descinyc30",
       "luma_id": "evt-2BvDdDz3QGSWYbj"
+    },
+    {
+      "id": "30",
+      "title": "TBA",
+      "speaker": "TBA",
+      "yt_uuid": "",
+      "luma_url": "https://lu.ma/descinyc31",
+      "luma_id": "evt-eZtWu68SBjb3DEc"
     }
   ]
 }
