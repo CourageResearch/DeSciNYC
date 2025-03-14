@@ -67,6 +67,8 @@ export async function POST(req: NextRequest) {
       }
     );
 
+    console.log("Email response:", emailResponse);
+
     if (!emailResponse.ok) {
       console.error("Failed to send notification email");
     }
