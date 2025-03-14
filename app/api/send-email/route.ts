@@ -1,6 +1,7 @@
 import sgMail from "@sendgrid/mail";
 import { ADMIN_EMAILS } from "@/types/adminEmails";
 import { NextRequest, NextResponse } from "next/server";
+import db from "../../../events.json";
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,6 +31,10 @@ export async function POST(req: NextRequest) {
       // Handle subscription email
       const { email } = emailData;
 
+      // Get next event data
+      const nextEventId = db.next_event;
+      const nextEvent = db.events.find((event) => event.id === nextEventId);
+
       // Email to admin
       const adminMsg = {
         to: ADMIN_EMAILS,
@@ -46,6 +51,8 @@ export async function POST(req: NextRequest) {
         text: `Thank you for subscribing to DeSciNYC's email list! We're excited to have you join our community.
 
 We'll keep you updated with the latest news, events, and opportunities in the DeSciNYC ecosystem.
+
+Our next event is "${nextEvent?.title}" - you can RSVP here: ${nextEvent?.luma_url}
 
 Best regards,
 The DeSciNYC Team`,
