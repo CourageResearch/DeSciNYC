@@ -117,7 +117,7 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                     width={150}
                     height={60}
                     quality={100}
-                    className="h-5 object-contain"
+                    className="h-5 object-contain hover:scale-105 transition-all duration-300"
                   />
                 </Link>
               ) : (
