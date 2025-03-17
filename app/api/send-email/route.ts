@@ -48,14 +48,34 @@ export async function POST(req: NextRequest) {
         to: email,
         from: "SVN <admin@svn.haus>",
         subject: "Welcome to DeSciNYC!",
-        text: `Thank you for subscribing to DeSciNYC's email list! We're excited to have you join our community.
-
-We'll keep you updated with the latest news, events, and opportunities in the DeSciNYC ecosystem.
-
-Our next event is "${nextEvent?.title}" - you can RSVP here: ${nextEvent?.luma_url}
-
-Best regards,
-The DeSciNYC Team`,
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <p>Thank you for subscribing to DeSciNYC's email list! We're excited to have you join our community.</p>
+            
+            <p>We'll keep you updated with the latest news, events, and opportunities in the DeSciNYC ecosystem.</p>
+            
+            ${
+              nextEvent
+                ? `
+              <p>Our next event is "${nextEvent.title}"</p>
+              <div style="margin: 25px 0;">
+                <a href="${nextEvent.luma_url}" 
+                   style="background-color: #0FA711; 
+                          color: white; 
+                          padding: 10px 20px; 
+                          text-decoration: none; 
+                          border-radius: 0px; 
+                          display: inline-block;">
+                  RSVP to Event
+                </a>
+              </div>
+            `
+                : ""
+            }
+            
+            <p>Best regards,<br>The DeSciNYC Team</p>
+          </div>
+        `,
       };
 
       // Send both emails
