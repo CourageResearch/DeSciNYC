@@ -11,12 +11,12 @@ export async function POST(req: NextRequest) {
     // Set the SendGrid API key
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
-    let msg;
-
     if (type === "contact") {
       // Handle contact form email
       const { name, email, phone, message } = emailData;
-      msg = {
+
+      // Email to admin
+      const adminMsg = {
         to: ADMIN_EMAILS,
         from: "SVN <admin@svn.haus>",
         subject: "New Contact Form Submission",
@@ -27,6 +27,27 @@ export async function POST(req: NextRequest) {
           Message: ${message}
         `,
       };
+
+      // Confirmation email to user
+      const userMsg = {
+        to: email,
+        from: "SVN <admin@svn.haus>",
+        subject: "Thank you for contacting DeSciNYC",
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <p>Dear ${name},</p>
+            
+            <p>Thank you for reaching out to DeSciNYC. We have received your message and will get back to you as soon as possible.</p>
+            
+            <p>Best regards,<br>The DeSciNYC Team</p>
+          </div>
+        `,
+      };
+
+      // Send both emails
+      await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
+
+      return NextResponse.json({ message: "Email sent successfully" });
     } else if (type === "subscribe") {
       // Handle subscription email
       const { email } = emailData;
@@ -48,14 +69,51 @@ export async function POST(req: NextRequest) {
         to: email,
         from: "SVN <admin@svn.haus>",
         subject: "Welcome to DeSciNYC!",
-        text: `Thank you for subscribing to DeSciNYC's email list! We're excited to have you join our community.
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <p>Hi there,</p>
+            
+            <p>Thanks for subscribing to the DeSciNYC email list! We're thrilled to have you as part of our community.</p>
+            
+            <p>We'll keep you in the loop with upcoming events.</p>
+            
+            ${
+              nextEvent
+                ? `
+              <p>Join us at our next event, "${nextEvent.title}" - you can RSVP here:</p>
+              <div style="margin: 25px 0;">
+                <a href="${nextEvent.luma_url}" 
+                   style="background-color: #0FA711; 
+                          color: white; 
+                          padding: 10px 20px; 
+                          text-decoration: none; 
+                          border-radius: 0px; 
+                          display: inline-block;">
+                  RSVP to Event
+                </a>
+              </div>
+            `
+                : ""
+            }
 
-We'll keep you updated with the latest news, events, and opportunities in the DeSciNYC ecosystem.
+            <p>Missed an event or want to catch up? You can watch previous event recordings anytime on our website here:</p>
+            <div style="margin: 25px 0;">
+              <a href="https://www.desci.nyc/#past-events" 
+                 style="background-color: #0FA711; 
+                        color: white; 
+                        padding: 10px 20px; 
+                        text-decoration: none; 
+                        border-radius: 0px; 
+                        display: inline-block;">
+                Watch Recordings
+              </a>
+            </div>
 
-Our next event is "${nextEvent?.title}" - you can RSVP here: ${nextEvent?.luma_url}
-
-Best regards,
-The DeSciNYC Team`,
+            <p>Looking forward to seeing you soon!</p>
+            
+            <p>All the best,<br>The DeSciNYC Team</p>
+          </div>
+        `,
       };
 
       // Send both emails
@@ -68,9 +126,6 @@ The DeSciNYC Team`,
         { status: 400 }
       );
     }
-
-    await sgMail.send(msg);
-    return NextResponse.json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
     return NextResponse.json(
