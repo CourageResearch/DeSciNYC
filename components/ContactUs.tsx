@@ -95,6 +95,13 @@ const ContactUs = () => {
                 >
                   TikTok
                 </Link>
+                <Link
+                  href="https://www.linkedin.com/company/descinyc/"
+                  target="_blank"
+                  className="transition-all ease-in-out hover:text-[#0FA711]"
+                >
+                  LinkedIn
+                </Link>
               </div>
             </div>
           </div>
