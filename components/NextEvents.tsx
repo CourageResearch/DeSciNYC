@@ -118,7 +118,7 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
                 <div className="bg-[#2A2A2A] h-[2px] w-full" />
                 <div className="flex flex-col gap-2 items-start justify-center w-full my-2">
                   <Image
-                    src={upcomingEvents[1].event.cover_url}
+                    src={upcomingEvents[index + 1].event.cover_url}
                     alt="Event Image"
                     width={400}
                     height={400}
