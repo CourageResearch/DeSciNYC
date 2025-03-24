@@ -19,10 +19,6 @@ const logos = [
     href: null,
   },
   {
-    src: "/images/logo/binance.png",
-    href: null,
-  },
-  {
     src: "/images/logo/movement.png",
     href: null,
   },
@@ -106,7 +102,7 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
       </div>
       <div className="flex flex-col sm:flex-row justify-between bg-gradient-to-r from-[#0d230d]/60 from-10% via-[#004b00]/60 via 30% to-[#0d230d]/60 to-50% border-y border-[#0FA711]/60 h-36 md:h-14 items-center my-16 md:my-24">
         <div className="flex items-center max-w-[1100px] px-4 h-full mx-auto w-full">
-          <div className="grid grid-cols-2 md:grid-cols-6 items-center justify-between gap-4 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-5 items-center justify-between gap-4 w-full">
             <p className="text-center md:text-left">Supported by:</p>
             {logos.map((logo, index) =>
               logo.href ? (
