@@ -116,6 +116,15 @@ const NextEvents = async ({ events }: { events: LumaEvent[] }) => {
               <div className="flex flex-col flex-grow">
                 <h3 className="font-Jersey15 text-3xl">{event.event.name}</h3>
                 <div className="bg-[#2A2A2A] h-[2px] w-full" />
+                <div className="flex flex-col gap-2 items-start justify-center w-full my-2">
+                  <Image
+                    src={upcomingEvents[index + 1].event.cover_url}
+                    alt="Event Image"
+                    width={400}
+                    height={400}
+                    className="w-4/5 h-full object-cover"
+                  />
+                </div>
                 <p className="text-2xl text-[#0FA711] font-Jersey10">
                   {new Date(event.event.start_at).toLocaleDateString("en-US", {
                     month: "long",
