@@ -66,13 +66,13 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                   </p>
                 </Button>
               </Link>
-              <Link href="#subscribe" className="w-full md:w-1/3">
+              <Link href="#subscribe" className="w-full md:w-1/2">
                 <Button
                   variant="gray"
                   size="lg"
-                  className="w-full h-12 md:h-14 text-lg md:text-xl font-semibold"
+                  className="w-full h-12 md:h-14 text-lg md:text-base font-semibold"
                 >
-                  Subscribe
+                  Subscribe to Mailing List
                 </Button>
               </Link>
             </div>

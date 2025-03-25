@@ -71,8 +71,8 @@ const SuggestComponent = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
-      <div className="flex flex-row gap-4 mb-20 md:mb-40 border border-[#00F703]/30 bg-[#0fa711]/40 px-4 md:px-8 py-12 w-full">
+    <div className="w-full flex flex-col items-center justify-center p-4">
+      <div className="flex flex-col md:flex-row gap-4 mb-20 md:mb-40 border border-[#00F703]/30 bg-[#0fa711]/40 px-4 md:px-8 py-12 w-full">
         <div className="flex flex-col gap-4 items-start w-full md:w-1/2">
           <h3 className="text-stone-200 uppercase text-5xl font-medium font-Jersey15">
             Suggest a Speaker
@@ -166,7 +166,7 @@ const SuggestComponent = () => {
                 </FormItem>
               )}
             />
-            <div className="flex flex-row w-full items-center justify-between">
+            <div className="flex flex-col md:flex-row w-full items-center justify-between gap-4 md:gap-0">
               <Button
                 variant="green"
                 className="w-full md:w-40 font-bold text-white h-10"
@@ -181,7 +181,7 @@ const SuggestComponent = () => {
               </Button>
               {message && (
                 <div
-                  className={`flex items-center justify-start gap-1 ${
+                  className={`flex items-center text-sm justify-center md:justify-start gap-1 ${
                     message.type === "success"
                       ? "text-green-400"
                       : "text-red-400"
