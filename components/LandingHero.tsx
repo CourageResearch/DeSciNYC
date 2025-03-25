@@ -66,13 +66,13 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                   </p>
                 </Button>
               </Link>
-              <Link href="#subscribe" className="w-full md:w-1/3">
+              <Link href="#subscribe" className="w-full md:w-1/2">
                 <Button
                   variant="gray"
                   size="lg"
-                  className="w-full h-12 md:h-14 text-lg md:text-xl font-semibold"
+                  className="w-full h-12 md:h-14 text-lg md:text-base font-semibold"
                 >
-                  Subscribe
+                  Subscribe to Mailing List
                 </Button>
               </Link>
             </div>
@@ -101,9 +101,14 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row justify-between bg-gradient-to-r from-[#0d230d]/60 from-10% via-[#004b00]/60 via 30% to-[#0d230d]/60 to-50% border-y border-[#0FA711]/60 h-36 md:h-14 items-center my-16 md:my-24">
+        <p className="text-center md:text-left block md:hidden pt-4">
+          Supported by:
+        </p>
         <div className="flex items-center max-w-[1100px] px-4 h-full mx-auto w-full">
           <div className="grid grid-cols-2 md:grid-cols-5 items-center justify-between gap-4 w-full">
-            <p className="text-center md:text-left">Supported by:</p>
+            <p className="text-center md:text-left hidden md:block">
+              Supported by:
+            </p>
             {logos.map((logo, index) =>
               logo.href ? (
                 <Link href={logo.href} target="_blank" key={index}>
