@@ -1,16 +1,18 @@
-import LandingHero from "@/components/LandingHero";
-import SubscribeComponent from "@/components/SubscribeComponent";
-import NextEvents from "@/components/NextEvents";
-import PastEvents from "@/components/PastEvents";
-import PhotoGallery from "@/components/PhotoGallery";
-import StayInTouch from "@/components/StayInTouch";
-import SupportUs from "@/components/SupportUs";
-import Store from "@/components/Store";
-import ContactUs from "@/components/ContactUs";
-import db from "../events.json";
-import { promisify } from "util";
 import fs from "fs";
 import path from "path";
+import { promisify } from "util";
+import db from "../events.json";
+import Store from "@/components/Store";
+import SupportUs from "@/components/SupportUs";
+import ContactUs from "@/components/ContactUs";
+import NextEvents from "@/components/NextEvents";
+import PastEvents from "@/components/PastEvents";
+import LandingHero from "@/components/LandingHero";
+import StayInTouch from "@/components/StayInTouch";
+import PhotoGallery from "@/components/PhotoGallery";
+import SuggestComponent from "@/components/SuggestSpeaker";
+import SubscribeComponent from "@/components/SubscribeComponent";
+
 const readdir = promisify(fs.readdir);
 
 const getGalleryPhotos = async () => {
@@ -96,6 +98,7 @@ const LandignPage = async () => {
         <StayInTouch />
         <SupportUs />
         <Store />
+        <SuggestComponent />
       </div>
       <ContactUs />
     </div>
