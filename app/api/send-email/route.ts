@@ -11,120 +11,152 @@ export async function POST(req: NextRequest) {
     // Set the SendGrid API key
     sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
-    if (type === "contact") {
-      // Handle contact form email
-      const { name, email, phone, message } = emailData;
+    switch (type) {
+      case "contact": {
+        const { name, email, phone, message } = emailData;
 
-      // Email to admin
-      const adminMsg = {
-        to: ADMIN_EMAILS,
-        from: "SVN <admin@svn.haus>",
-        subject: "New Contact Form Submission",
-        text: `
-          Name: ${name}
-          Email: ${email}
-          Phone: ${phone}
-          Message: ${message}
-        `,
-      };
+        const adminMsg = {
+          to: ADMIN_EMAILS,
+          from: "SVN <admin@svn.haus>",
+          subject: "New Contact Form Submission",
+          text: `
+            Name: ${name}
+            Email: ${email}
+            Phone: ${phone}
+            Message: ${message}
+          `,
+        };
 
-      // Confirmation email to user
-      const userMsg = {
-        to: email,
-        from: "SVN <admin@svn.haus>",
-        subject: "Thank you for contacting DeSciNYC",
-        html: `
-          <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <p>Dear ${name},</p>
-            
-            <p>Thank you for reaching out to DeSciNYC. We have received your message and will get back to you as soon as possible.</p>
-            
-            <p>Best regards,<br>The DeSciNYC Team</p>
-          </div>
-        `,
-      };
+        const userMsg = {
+          to: email,
+          from: "SVN <admin@svn.haus>",
+          subject: "Thank you for contacting DeSciNYC",
+          html: `
+            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+              <p>Dear ${name},</p>
+              
+              <p>Thank you for reaching out to DeSciNYC. We have received your message and will get back to you as soon as possible.</p>
+              
+              <p>Best regards,<br>The DeSciNYC Team</p>
+            </div>
+          `,
+        };
 
-      // Send both emails
-      await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
+        await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
+        return NextResponse.json({ message: "Email sent successfully" });
+      }
 
-      return NextResponse.json({ message: "Email sent successfully" });
-    } else if (type === "subscribe") {
-      // Handle subscription email
-      const { email } = emailData;
+      case "subscribe": {
+        const { email } = emailData;
+        const nextEventId = db.next_event;
+        const nextEvent = db.events.find((event) => event.id === nextEventId);
 
-      // Get next event data
-      const nextEventId = db.next_event;
-      const nextEvent = db.events.find((event) => event.id === nextEventId);
+        const adminMsg = {
+          to: ADMIN_EMAILS,
+          from: "SVN <admin@svn.haus>",
+          subject: "New DeSciNYC email list member!",
+          text: `A user signed up with the email ${email}! They are now in the luma list.`,
+        };
 
-      // Email to admin
-      const adminMsg = {
-        to: ADMIN_EMAILS,
-        from: "SVN <admin@svn.haus>",
-        subject: "New DeSciNYC email list member!",
-        text: `A user signed up with the email ${email}! They are now in the luma list.`,
-      };
+        const subscriberMsg = {
+          to: email,
+          from: "SVN <admin@svn.haus>",
+          subject: "Welcome to DeSciNYC!",
+          html: `
+            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+              <p>Hi there,</p>
+              
+              <p>Thanks for subscribing to the DeSciNYC email list! We're thrilled to have you as part of our community.</p>
+              
+              <p>We'll keep you in the loop with upcoming events.</p>
+              
+              ${
+                nextEvent
+                  ? `
+                <p>Join us at our next event, "${nextEvent.title}" - you can RSVP here:</p>
+                <div style="margin: 25px 0;">
+                  <a href="${nextEvent.luma_url}" 
+                     style="background-color: #0FA711; 
+                            color: white; 
+                            padding: 10px 20px; 
+                            text-decoration: none; 
+                            border-radius: 0px; 
+                            display: inline-block;">
+                    RSVP to Event
+                  </a>
+                </div>
+              `
+                  : ""
+              }
 
-      // Confirmation email to subscriber
-      const subscriberMsg = {
-        to: email,
-        from: "SVN <admin@svn.haus>",
-        subject: "Welcome to DeSciNYC!",
-        html: `
-          <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <p>Hi there,</p>
-            
-            <p>Thanks for subscribing to the DeSciNYC email list! We're thrilled to have you as part of our community.</p>
-            
-            <p>We'll keep you in the loop with upcoming events.</p>
-            
-            ${
-              nextEvent
-                ? `
-              <p>Join us at our next event, "${nextEvent.title}" - you can RSVP here:</p>
+              <p>Missed an event or want to catch up? You can watch previous event recordings anytime on our website here:</p>
               <div style="margin: 25px 0;">
-                <a href="${nextEvent.luma_url}" 
+                <a href="https://www.desci.nyc/#past-events" 
                    style="background-color: #0FA711; 
                           color: white; 
                           padding: 10px 20px; 
                           text-decoration: none; 
                           border-radius: 0px; 
                           display: inline-block;">
-                  RSVP to Event
+                  Watch Recordings
                 </a>
               </div>
-            `
-                : ""
-            }
 
-            <p>Missed an event or want to catch up? You can watch previous event recordings anytime on our website here:</p>
-            <div style="margin: 25px 0;">
-              <a href="https://www.desci.nyc/#past-events" 
-                 style="background-color: #0FA711; 
-                        color: white; 
-                        padding: 10px 20px; 
-                        text-decoration: none; 
-                        border-radius: 0px; 
-                        display: inline-block;">
-                Watch Recordings
-              </a>
+              <p>Looking forward to seeing you soon!</p>
+              
+              <p>All the best,<br>The DeSciNYC Team</p>
             </div>
+          `,
+        };
 
-            <p>Looking forward to seeing you soon!</p>
-            
-            <p>All the best,<br>The DeSciNYC Team</p>
-          </div>
-        `,
-      };
+        await Promise.all([sgMail.send(adminMsg), sgMail.send(subscriberMsg)]);
+        return NextResponse.json({ message: "Subscription confirmed" });
+      }
 
-      // Send both emails
-      await Promise.all([sgMail.send(adminMsg), sgMail.send(subscriberMsg)]);
+      case "suggest": {
+        const { yourName, yourEmail, speakerName, speakerEmail, speakerBio } =
+          emailData;
 
-      return NextResponse.json({ message: "Subscription confirmed" });
-    } else {
-      return NextResponse.json(
-        { error: "Invalid email type" },
-        { status: 400 }
-      );
+        const adminMsg = {
+          to: ADMIN_EMAILS,
+          from: "SVN <admin@svn.haus>",
+          subject: "New Speaker Suggestion",
+          text: `
+            Suggested by:
+            Name: ${yourName}
+            Email: ${yourEmail}
+
+            Speaker Details:
+            Name: ${speakerName}
+            Email: ${speakerEmail}
+            Bio: ${speakerBio}
+          `,
+        };
+
+        const userMsg = {
+          to: yourEmail,
+          from: "SVN <admin@svn.haus>",
+          subject: "Thank you for your speaker suggestion",
+          html: `
+            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+              <p>Dear ${yourName},</p>
+              
+              <p>Thank you for suggesting a speaker for DeSciNYC. We appreciate your contribution to our community.</p>
+                            
+              <p>Best regards,<br>The DeSciNYC Team</p>
+            </div>
+          `,
+        };
+
+        await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
+        return NextResponse.json({ message: "Speaker suggestion received" });
+      }
+
+      default:
+        return NextResponse.json(
+          { error: "Invalid email type" },
+          { status: 400 }
+        );
     }
   } catch (error) {
     console.error("Error sending email:", error);
