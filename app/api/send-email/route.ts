@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 
         const adminMsg = {
           to: ADMIN_EMAILS,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "New Contact Form Submission",
           text: `
             Name: ${name}
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
         const userMsg = {
           to: email,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "Thank you for contacting DeSciNYC",
           html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -53,14 +53,14 @@ export async function POST(req: NextRequest) {
 
         const adminMsg = {
           to: ADMIN_EMAILS,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "New DeSciNYC email list member!",
           text: `A user signed up with the email ${email}! They are now in the luma list.`,
         };
 
         const subscriberMsg = {
           to: email,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "Welcome to DeSciNYC!",
           html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -119,7 +119,7 @@ export async function POST(req: NextRequest) {
 
         const adminMsg = {
           to: ADMIN_EMAILS,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "New Speaker Suggestion",
           text: `
             Suggested by:
@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
 
         const userMsg = {
           to: yourEmail,
-          from: "SVN <admin@svn.haus>",
+          from: "Stadium Science <admin@svn.haus>",
           subject: "Thank you for your speaker suggestion",
           html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6;">
