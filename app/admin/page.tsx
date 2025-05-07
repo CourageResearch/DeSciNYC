@@ -15,6 +15,7 @@ export default function AdminUploadPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [images, setImages] = useState<string[]>([]);
