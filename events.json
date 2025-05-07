@@ -238,11 +238,27 @@
     },
     {
       "id": "32",
+      "title": "Decoding Biomarkers for Longevity",
+      "speaker": "Alexander Lozano, MD, PhD",
+      "yt_uuid": "",
+      "luma_url": "https://lu.ma/descinyc34",
+      "luma_id": "evt-siLKYIjaMvvAKGr"
+    },
+    {
+      "id": "33",
       "title": "AI and the Law",
       "speaker": "Assemblymember Alex Bores",
       "yt_uuid": "",
       "luma_url": "https://lu.ma/descinyc33",
       "luma_id": "evt-dUsEsHvnAz3PwCz"
+    },
+    {
+      "id": "34",
+      "title": "Nutrient Transport and Cell Metabolism",
+      "speaker": "Timothy Kenny",
+      "yt_uuid": "",
+      "luma_url": "https://lu.ma/descinyc38",
+      "luma_id": "evt-9U3AFAbImn8vs5m"
     }
   ] 
 }
