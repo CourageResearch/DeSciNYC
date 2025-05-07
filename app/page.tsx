@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-import { promisify } from "util";
 import db from "../events.json";
 import Store from "@/components/Store";
 import SupportUs from "@/components/SupportUs";
@@ -13,9 +10,6 @@ import PhotoGallery from "@/components/PhotoGallery";
 import SuggestComponent from "@/components/SuggestSpeaker";
 import SubscribeComponent from "@/components/SubscribeComponent";
 import { createClient } from '@supabase/supabase-js';
-
-
-const readdir = promisify(fs.readdir);
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -70,6 +64,7 @@ const LandingPage = async () => {
   const event = db.events.find((event) => event.id === nextEventId);
 
   // GET UPCOMING EVENTS
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const events = (
     await Promise.all(
       db.events.map((event) => getLumaEvent({ event_id: event.luma_id }))
