@@ -12,31 +12,34 @@ import StayInTouch from "@/components/StayInTouch";
 import PhotoGallery from "@/components/PhotoGallery";
 import SuggestComponent from "@/components/SuggestSpeaker";
 import SubscribeComponent from "@/components/SubscribeComponent";
+import { createClient } from '@supabase/supabase-js';
+
 
 const readdir = promisify(fs.readdir);
 
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
 const getGalleryPhotos = async () => {
-  try {
-    const directoryPath = path.join(
-      process.cwd(),
-      "public",
-      "gallery",
-      "small"
-    );
-    const files = await readdir(directoryPath);
-    // Filter out non-image files
-    const imageFiles = files.filter((file) =>
-      /\.(jpg|jpeg|png|gif)$/i.test(file)
-    );
-    // Map image files to required format
-    const images = imageFiles.map((file) => ({
-      original: path.join("/gallery/small", file),
-      thumbnail: path.join("/gallery/thumbnails", file),
-    }));
-    return images;
-  } catch (err) {
-    throw new Error(String(err));
+  const { data: files, error } = await supabase.storage
+    .from("gallery")
+    .list("images");
+  
+  if (error) {
+    console.error("Error fetching gallery images:", error);
+    return [];
   }
+
+  const images = files
+    .filter(file => file.name.match(/\.(jpg|jpeg|png|gif)$/i))
+    .map(file => ({
+      original: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/gallery/images/${file.name}`,
+      thumbnail: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/gallery/images/${file.name}`
+    }));
+
+  return images;
 };
 
 const getLumaEvent = async ({ event_id }: { event_id: string }) => {
@@ -61,7 +64,7 @@ const getLumaEvent = async ({ event_id }: { event_id: string }) => {
   return data;
 };
 
-const LandignPage = async () => {
+const LandingPage = async () => {
   // GET NEXT EVENT
   const nextEventId = db.next_event;
   const event = db.events.find((event) => event.id === nextEventId);
@@ -92,7 +95,7 @@ const LandignPage = async () => {
       <LandingHero event={lumaEvent} />
       <SubscribeComponent />
       <div className="max-w-[1100px] mx-auto">
-        <NextEvents events={events} />
+        <NextEvents />
         <PastEvents />
         <PhotoGallery images={images} />
         <StayInTouch />
@@ -105,4 +108,4 @@ const LandignPage = async () => {
   );
 };
 
-export default LandignPage;
+export default LandingPage;
