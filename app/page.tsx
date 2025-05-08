@@ -11,10 +11,14 @@ import SuggestComponent from "@/components/SuggestSpeaker";
 import SubscribeComponent from "@/components/SubscribeComponent";
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing required Supabase environment variables. Please check your .env file.');
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const getGalleryPhotos = async () => {
   const { data: files, error } = await supabase.storage
