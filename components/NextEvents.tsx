@@ -47,11 +47,25 @@ async function getLumaEvent(lumaId: string) {
 
 const NextEvents = async () => {
   // Fetch upcoming events from Supabase, ordered by date
-  const { data: upcomingEvents } = await supabase
+  const { data: upcomingEvents, error } = await supabase
     .from('events')
     .select('*')
     .eq('active', true)
-    .order('created_at', { ascending: true });
+    .order('id', { ascending: true });
+  
+  if (error) {
+    console.error('Error fetching events:', error);
+    return (
+      <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
+        <Heading title="Next Events" />
+        <div className="border border-[#202020] p-4">
+          <p className="text-xl text-red-500">
+            Error loading events. Please try again later.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   // If no upcoming events, show a message
   if (!upcomingEvents || upcomingEvents.length === 0) {

@@ -6,17 +6,17 @@ export async function POST(req: NextRequest) {
     const { email } = await req.json();
 
     // Add email to Supabase
-    const { error: supabaseError } = await supabase
-      .from("email_list")
-      .insert([{ email: email }]);
+    // const { error: supabaseError } = await supabase
+    //   .from("email_list")
+    //   .insert([{ email: email }]);
 
-    if (supabaseError) {
-      console.error("Error adding email to list:", supabaseError);
-      return NextResponse.json(
-        { error: "Failed to add email to list" },
-        { status: 400 }
-      );
-    }
+    // if (supabaseError) {
+    //   console.error("Error adding email to list:", supabaseError);
+    //   return NextResponse.json(
+    //     { error: "Failed to add email to list" },
+    //     { status: 400 }
+    //   );
+    // }
 
     // Add to Luma
     const lumaApiKey = process.env.LUMA_API_KEY;
