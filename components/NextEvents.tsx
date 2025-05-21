@@ -114,13 +114,14 @@ const NextEvents = async () => {
                 {event.title}
               </h4>
               <p className="text-muted-foreground font-bold text-xl">
-                {event.lumaEvent?.start_at ? new Date(event.lumaEvent.start_at  ).toLocaleDateString('en-US', {
+                {event.lumaEvent?.start_at ? new Date(event.lumaEvent.start_at).toLocaleString('en-US', {
                   month: 'long',
                   day: 'numeric',
                   year: 'numeric',
                   hour: 'numeric',
                   minute: 'numeric',
-                  hour12: true
+                  hour12: true,
+                  timeZone: event.lumaEvent.timezone || 'America/New_York'
                 }) : ''}
               </p>
               <QRCode url={event.luma_url + "?utm_source=qr"} />
