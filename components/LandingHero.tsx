@@ -52,9 +52,17 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                 >
                   <p>RSVP to next event</p>
                   <p className="text-xs">
-                    {new Date(event?.event.start_at).toLocaleDateString(
+                    {new Date(event?.event.start_at).toLocaleString(
                       "en-US",
-                      { month: "long", day: "numeric", year: "numeric" }
+                      { 
+                        weekday: "long",
+                        month: "long", 
+                        day: "numeric", 
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                        timeZoneName: "short"
+                      }
                     )}
                   </p>
                 </Button>
