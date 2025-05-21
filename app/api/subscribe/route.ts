@@ -111,11 +111,9 @@ export async function POST(req: NextRequest) {
     if (upcomingEvents && upcomingEvents.length > 0) {
       // Get the first upcoming event
       const nextUpcomingEvent = upcomingEvents[0];
-      console.log('Next upcoming event from Supabase:', nextUpcomingEvent);
 
       // Fetch Luma event details
       const lumaData = await getLumaEvent(nextUpcomingEvent.luma_id);
-      console.log('Luma event data:', lumaData);
 
       if (lumaData?.event) {
         nextEvent = {
@@ -124,7 +122,6 @@ export async function POST(req: NextRequest) {
           start_at: lumaData.event.start_at,
           cover_url: lumaData.event.cover_url
         };
-        console.log('Processed next event:', nextEvent);
       }
     }
 

@@ -5,11 +5,11 @@ import Heading from "./ui/heading";
 import { Button } from "./ui/button";
 import { supabase } from "@/lib/supabaseClient";
 
-const scheduleLines = [
-  { time: "7:00 - 8:00 PM", activity: "Networking" },
-  { time: "8:00 - 9:00 PM", activity: "Main talk" },
-  { time: "9:00+ PM", activity: "More chatting" }
-];
+// const scheduleLines = [
+//   { time: "7:00 - 8:00 PM", activity: "Networking" },
+//   { time: "8:00 - 9:00 PM", activity: "Main talk" },
+//   { time: "9:00+ PM", activity: "More chatting" }
+// ];
 
 
 // Function to fetch Luma event data
@@ -102,21 +102,6 @@ const NextEvents = async () => {
   return (
     <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
       <Heading title="Next Events" />
-      {/* Schedule */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {scheduleLines.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col border border-[#202020] gap-2 p-4"
-          >
-            <h3 className="font-Jersey15 uppercase text-3xl">
-              {item.activity}
-            </h3>
-            <div className="bg-[#2A2A2A] h-[2px] w-full" />
-            <p className="text-3xl text-[#0FA711] font-Jersey10">{item.time}</p>
-          </div>
-        ))}
-      </div>
       {/* Event Cards */}
       <div className="flex flex-col gap-4">
         {eventsWithLumaData.map((event) => (
@@ -128,8 +113,15 @@ const NextEvents = async () => {
               <h4 className="font-Jersey10 text-4xl">
                 {event.title}
               </h4>
-              <p className="text-muted-foreground font-semibold">
-                Presented by: DeSciNYC, SS, Binance, Movement and Arch Lending.
+              <p className="text-muted-foreground font-bold text-xl">
+                {event.lumaEvent?.start_at ? new Date(event.lumaEvent.start_at  ).toLocaleDateString('en-US', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  hour12: true
+                }) : ''}
               </p>
               <QRCode url={event.luma_url + "?utm_source=qr"} />
               <Link
