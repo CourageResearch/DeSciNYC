@@ -63,29 +63,27 @@ const getLumaEvent = async ({ event_id }: { event_id: string }) => {
 };
 
 const LandingPage = async () => {
-  // GET NEXT EVENT
-  const nextEventId = db.next_event;
-  const event = db.events.find((event) => event.id === nextEventId);
-
-  // GET UPCOMING EVENTS
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const events = (
-    await Promise.all(
-      db.events.map((event) => getLumaEvent({ event_id: event.luma_id }))
-    )
-  )
-    .filter((event) => new Date(event.event.start_at) > new Date())
-    .sort(
-      (a, b) =>
-        new Date(a.event.start_at).getTime() -
-        new Date(b.event.start_at).getTime()
-    );
-
-  if (!event) {
-    throw new Error("Event not found");
+  const {data:upcomingEvents, error } = await supabase
+    .from("events")
+    .select("*")
+    .eq('active', true)
+    .order('id', { ascending: true });
+  
+  if (error) {
+    console.error("Error fetching upcoming events:", error);
+    throw new Error("Failed fetching upcoming events");
   }
 
-  const lumaEvent = await getLumaEvent({ event_id: event.luma_id });
+  if (!upcomingEvents || upcomingEvents.length === 0) {
+    throw new Error ("No upcoming events found");
+  }
+  //get first upcoming event
+  const nextEvent = upcomingEvents[0];
+  //get all event details from luma
+  const lumaEvent = await getLumaEvent({ event_id: nextEvent.luma_id });
+
+
+  
 
   const images = await getGalleryPhotos();
 

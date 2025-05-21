@@ -5,6 +5,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+interface LumaEvent {
+  name: string;
+  url: string;
+  start_at: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -48,9 +54,7 @@ export async function POST(req: NextRequest) {
       }
 
       case "subscribe": {
-        const { email } = emailData;
-        const nextEventId = db.next_event;
-        const nextEvent = db.events.find((event) => event.id === nextEventId);
+        const { email, nextEvent } = emailData;
 
         await Promise.all([
           // Admin notification
@@ -66,28 +70,28 @@ export async function POST(req: NextRequest) {
             to: [email],
             subject: "Welcome to DeSciNYC!",
             html: `
-              <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+              <div style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px;">
                 <p>Hi there,</p>
-                
+
                 <p>Thanks for subscribing to the DeSciNYC email list! We're thrilled to have you as part of our community.</p>
-                
+
                 <p>We'll keep you in the loop with upcoming events.</p>
-                
+
                 ${
                   nextEvent
                     ? `
-                  <p>Join us at our next event, "${nextEvent.title}" - you can RSVP here:</p>
-                  <div style="margin: 25px 0;">
-                    <a href="${nextEvent.luma_url}" 
-                       style="background-color: #0FA711; 
-                              color: white; 
-                              padding: 10px 20px; 
-                              text-decoration: none; 
-                              border-radius: 0px; 
-                              display: inline-block;">
-                      RSVP to Event
-                    </a>
-                  </div>
+                <p>Join us at our next event, "${nextEvent.name}" - you can RSVP here:</p>
+                <div style="margin: 25px 0;">
+                  <a href="${nextEvent.url}" 
+                     style="background-color: #0FA711; 
+                            color: white; 
+                            padding: 10px 20px; 
+                            text-decoration: none; 
+                            border-radius: 0px; 
+                            display: inline-block;">
+                    RSVP to Event
+                  </a>
+                </div>
                 `
                     : ""
                 }
@@ -106,7 +110,7 @@ export async function POST(req: NextRequest) {
                 </div>
 
                 <p>Looking forward to seeing you soon!</p>
-                
+
                 <p>All the best,<br>The DeSciNYC Team</p>
               </div>
             `,
