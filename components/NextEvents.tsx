@@ -107,7 +107,7 @@ const NextEvents = async () => {
         {eventsWithLumaData.map((event) => (
           <div
             key={event.id}
-            className="flex flex-col md:flex-row border border-[#202020] p-4 gap-4"
+            className="flex flex-col md:flex-row border-b md:border border-[#202020] p-4 gap-4"
           >
             <div className="flex flex-col justify-center gap-2 w-full md:w-3/5">
               <h4 className="font-Jersey10 text-4xl">
