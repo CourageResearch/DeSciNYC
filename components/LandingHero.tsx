@@ -61,6 +61,7 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                         year: "numeric",
                         hour: "numeric",
                         minute: "2-digit",
+                        timeZone: event?.event.timezone || "America/New_York",
                         timeZoneName: "short"
                       }
                     )}
