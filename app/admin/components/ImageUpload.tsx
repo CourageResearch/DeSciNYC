@@ -162,17 +162,25 @@ export default function ImageUpload() {
         className={`w-full max-w-md aspect-square mb-4 border-2 border-dashed rounded-lg flex items-center justify-center cursor-pointer transition-colors ${
           isDragging 
             ? 'border-green-500 bg-green-50' 
-            : 'border-gray-300 hover:border-gray-400'
+            : uploading
+              ? 'border-blue-300 bg-blue-50'
+              : 'border-gray-300 hover:border-gray-400'
         }`}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
-        onClick={() => fileInputRef.current?.click()}
+        onClick={() => !uploading && fileInputRef.current?.click()}
       >
         <div className="text-center p-6">
-          <p className="text-gray-600 mb-2">Drag and drop images here</p>
-          <p className="text-sm text-gray-500">or click to select files</p>
+          {uploading ? (
+            <p className="text-blue-600 mb-2">Uploading...</p>
+          ) : (
+            <>
+              <p className="text-gray-600 mb-2">Drag and drop images here</p>
+              <p className="text-sm text-gray-500">or click to select files</p>
+            </>
+          )}
         </div>
       </div>
       <input

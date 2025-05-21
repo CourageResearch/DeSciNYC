@@ -8,8 +8,22 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+// Define Event interface to replace 'any'
+interface Event {
+  id: number;
+  title: string;
+  speaker: string;
+  yt_uuid?: string;
+  luma_url?: string;
+  luma_id?: string;
+  slides?: string | null;
+  created_at?: string;
+  updated_at?: string;
+  active: boolean;
+}
+
 export default function EventList() {
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
