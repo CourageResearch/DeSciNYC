@@ -50,7 +50,8 @@ const PastEvents = async () => {
           ...event,
           lumaEvent: lumaData?.event || null
         };
-      } catch (error) {
+      } catch (err) {
+        console.error(`Error fetching Luma data for event:`, err);
         return event;
       }
     })

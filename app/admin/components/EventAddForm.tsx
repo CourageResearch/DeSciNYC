@@ -23,17 +23,23 @@ export default function EventAddForm() {
     e.preventDefault();
     setLoading(true);
     setMessage(null);
-    const { error } = await supabase.from("events").insert([
-      {
-        title,
-        speaker,
-        yt_uuid: ytUuid,
-        luma_url: lumaUrl,
-        luma_id: lumaId,
-        slides: slides || null,
-        active,
-      },
-    ]);
+    
+    // Tell Supabase to use default values when fields are undefined
+    const { error } = await supabase.from("events").insert(
+      [
+        {
+          title,
+          speaker,
+          yt_uuid: ytUuid,
+          luma_url: lumaUrl,
+          luma_id: lumaId,
+          slides: slides || null,
+          active,
+        },
+      ],
+      { defaultToNull: false } // This tells Supabase to use default values
+    );
+    
     setLoading(false);
     if (error) {
       setMessage(`Error: ${error.message}`);
