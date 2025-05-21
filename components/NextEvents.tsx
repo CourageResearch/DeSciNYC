@@ -141,14 +141,16 @@ const NextEvents = async () => {
             </div>
             <div className="flex flex-col gap-2 items-center justify-center w-full md:w-2/5">
               {event.lumaEvent?.cover_url ? (
-                <Image
-                  src={event.lumaEvent.cover_url}
-                  alt="Event Image"
-                  width={400}
-                  height={400}
-                />
+                <div className="relative w-full aspect-square">
+                  <Image
+                    src={event.lumaEvent.cover_url}
+                    alt="Event Image"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               ) : (
-                <div className="w-[400px] h-[400px] bg-gray-200 flex items-center justify-center">
+                <div className="w-full aspect-square bg-gray-200 flex items-center justify-center">
                   <p className="text-gray-500">No image available</p>
                 </div>
               )}
