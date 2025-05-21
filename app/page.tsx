@@ -20,9 +20,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const getGalleryPhotos = async () => {
+  // Get files sorted by creation time in descending order (newest first)
   const { data: files, error } = await supabase.storage
     .from("gallery")
-    .list("images");
+    .list("images", {
+      sortBy: { column: 'created_at', order: 'desc' }
+    });
   
   if (error) {
     console.error("Error fetching gallery images:", error);
@@ -31,6 +34,7 @@ const getGalleryPhotos = async () => {
 
   const images = files
     .filter(file => file.name.match(/\.(jpg|jpeg|png|gif)$/i))
+    // No need for extra sorting as the API already returned them sorted
     .map(file => ({
       original: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/gallery/images/${file.name}`,
       thumbnail: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/gallery/images/${file.name}`
