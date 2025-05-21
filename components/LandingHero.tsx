@@ -10,18 +10,11 @@ const logos = [
     src: "/images/logo/stadium.png",
     href: "https://stadium.science",
   },
-  {
-    src: "/images/logo/base.png",
-    href: null,
-  },
+
   {
     src: "/images/logo/solana.png",
     href: null,
-  },
-  {
-    src: "/images/logo/movement.png",
-    href: null,
-  },
+  }
 ];
 
 const LandingHero = async ({ event }: { event: LumaEvent }) => {
