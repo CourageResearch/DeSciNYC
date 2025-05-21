@@ -1,15 +1,8 @@
 import { Resend } from "resend";
-import db from "../../../events.json";
 import { ADMIN_EMAILS } from "@/types/adminEmails";
 import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-interface LumaEvent {
-  name: string;
-  url: string;
-  start_at: string;
-}
 
 export async function POST(req: NextRequest) {
   try {

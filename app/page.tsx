@@ -1,4 +1,3 @@
-import db from "../events.json";
 import Store from "@/components/Store";
 import SupportUs from "@/components/SupportUs";
 import ContactUs from "@/components/ContactUs";
