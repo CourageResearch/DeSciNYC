@@ -51,7 +51,6 @@ const NextEvents = async () => {
     .from('events')
     .select('*')
     .eq('active', true)
-    .order('id', { ascending: true });
   
   if (error) {
     console.error('Error fetching events:', error);
@@ -97,7 +96,12 @@ const NextEvents = async () => {
     })
   );
 
-
+  // Sort events by lumaEvent.start_at (ascending)
+  eventsWithLumaData.sort((a, b) => {
+    const aDate = a.lumaEvent?.start_at ? new Date(a.lumaEvent.start_at).getTime() : 0;
+    const bDate = b.lumaEvent?.start_at ? new Date(b.lumaEvent.start_at).getTime() : 0;
+    return aDate - bDate;
+  });
 
   return (
     <div className="flex flex-col gap-4 pb-20 md:pb-40 px-4 md:px-0">
