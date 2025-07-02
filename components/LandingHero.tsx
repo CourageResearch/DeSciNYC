@@ -11,10 +11,10 @@ const logos = [
     href: "https://stadium.science",
   },
 
-  {
-    src: "/images/logo/solana.png",
-    href: null,
-  }
+  // {
+  //   src: "/images/logo/solana.png",
+  //   href: null,
+  // },
 ];
 
 const LandingHero = async ({ event }: { event: LumaEvent }) => {
@@ -52,19 +52,16 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
                 >
                   <p>RSVP to next event</p>
                   <p className="text-xs">
-                    {new Date(event?.event.start_at).toLocaleString(
-                      "en-US",
-                      { 
-                        weekday: "long",
-                        month: "long", 
-                        day: "numeric", 
-                        year: "numeric",
-                        hour: "numeric",
-                        minute: "2-digit",
-                        timeZone: event?.event.timezone || "America/New_York",
-                        timeZoneName: "short"
-                      }
-                    )}
+                    {new Date(event?.event.start_at).toLocaleString("en-US", {
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                      hour: "numeric",
+                      minute: "2-digit",
+                      timeZone: event?.event.timezone || "America/New_York",
+                      timeZoneName: "short",
+                    })}
                   </p>
                 </Button>
               </Link>
@@ -102,15 +99,10 @@ const LandingHero = async ({ event }: { event: LumaEvent }) => {
           <div className="h-[2px] bg-[#cccccc]"></div>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row justify-between bg-gradient-to-r from-[#0d230d]/60 from-10% via-[#004b00]/60 via 30% to-[#0d230d]/60 to-50% border-y border-[#0FA711]/60 h-36 md:h-14 items-center my-16 md:my-24">
-        <p className="text-center md:text-left block md:hidden pt-4">
-          Supported by:
-        </p>
+      <div className="flex flex-col sm:flex-row justify-between bg-gradient-to-r from-[#0d230d]/60 from-10% via-[#004b00]/60 via-30% to-[#0d230d]/60 to-50% border-y border-[#0FA711]/60 h-14 items-center my-16 md:my-24">
         <div className="flex items-center max-w-[1100px] px-4 h-full mx-auto w-full">
-          <div className="grid grid-cols-2 md:grid-cols-5 items-center justify-between gap-4 w-full">
-            <p className="text-center md:text-left hidden md:block">
-              Supported by:
-            </p>
+          <div className="flex items-center justify-center gap-4 w-full">
+            <p className="mt-0.5">Supported by:</p>
             {logos.map((logo, index) =>
               logo.href ? (
                 <Link href={logo.href} target="_blank" key={index}>
