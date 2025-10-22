@@ -15,6 +15,7 @@ const formSchema = z.object({
   speakerName: z.string().min(2, "Speaker name must be at least 2 characters"),
   speakerEmail: z.string().email(),
   speakerBio: z.string().min(10, "Please provide a brief bio of the speaker"),
+  honeypot: z.string().optional(), // Honeypot field to catch bots
 });
 
 const SuggestComponent = () => {
@@ -26,6 +27,7 @@ const SuggestComponent = () => {
       speakerName: "",
       speakerEmail: "",
       speakerBio: "",
+      honeypot: "",
     },
   });
 
@@ -163,6 +165,23 @@ const SuggestComponent = () => {
                     required
                   />
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/* Honeypot field - hidden from users but visible to bots */}
+            <FormField
+              control={form.control}
+              name="honeypot"
+              render={({ field }) => (
+                <FormItem>
+                  <input
+                    {...field}
+                    type="text"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
                 </FormItem>
               )}
             />
