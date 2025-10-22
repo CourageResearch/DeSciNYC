@@ -2,8 +2,23 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { yourName, yourEmail, speakerName, speakerEmail, speakerBio } =
-      await req.json();
+    const {
+      yourName,
+      yourEmail,
+      speakerName,
+      speakerEmail,
+      speakerBio,
+      honeypot,
+    } = await req.json();
+
+    // Check honeypot field - if it has any value, it's likely a bot
+    if (honeypot && honeypot.trim() !== "") {
+      console.log("Bot detected via honeypot field");
+      return NextResponse.json(
+        { error: "Invalid submission" },
+        { status: 400 }
+      );
+    }
 
     // Send notification email
     const emailResponse = await fetch(
