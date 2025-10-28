@@ -9,7 +9,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon, Loader2, XIcon } from "lucide-react";
 import { Form, FormField, FormItem, FormMessage } from "./ui/form";
 import { generateBotProtectionData } from "../lib/botProtection";
-import { useGoogleReCaptcha } from "react19-google-recaptcha-v3";
+import {
+  useGoogleReCaptcha,
+  GoogleReCaptchaProvider,
+} from "react19-google-recaptcha-v3";
 
 const formSchema = z.object({
   yourName: z.string().min(2, "Name must be at least 2 characters"),
@@ -131,184 +134,188 @@ const SuggestComponent = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center p-4">
-      <div className="flex flex-col md:flex-row gap-4 mb-20 md:mb-40 border border-[#00F703]/30 bg-[#0fa711]/40 px-4 md:px-8 py-12 w-full">
-        <div className="flex flex-col gap-4 items-start w-full md:w-1/2">
-          <h3 className="text-stone-200 uppercase text-5xl font-medium font-Jersey15">
-            Suggest a Speaker
-          </h3>
-          <p className="w-full md:w-2/3 text-stone-200 font-semibold">
-            Have a speaker in mind for a future event? Suggest them here!
-          </p>
-        </div>
-        <Form {...form}>
-          <form
-            className="flex flex-col gap-4 mt-2 w-full md:w-1/2"
-            onSubmit={form.handleSubmit(handleSubmit)}
-          >
-            <FormField
-              control={form.control}
-              name="yourName"
-              render={({ field }) => (
-                <FormItem>
-                  <Input
-                    {...field}
-                    disabled={isLoading}
-                    placeholder="Your Name"
-                    className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
-                    required
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="yourEmail"
-              render={({ field }) => (
-                <FormItem>
-                  <Input
-                    {...field}
-                    disabled={isLoading}
-                    placeholder="Your Email"
-                    className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
-                    required
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="speakerName"
-              render={({ field }) => (
-                <FormItem>
-                  <Input
-                    {...field}
-                    disabled={isLoading}
-                    placeholder="Speaker's Name"
-                    className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
-                    required
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="speakerEmail"
-              render={({ field }) => (
-                <FormItem>
-                  <Input
-                    {...field}
-                    disabled={isLoading}
-                    placeholder="Speaker's Email"
-                    className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
-                    required
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="speakerBio"
-              render={({ field }) => (
-                <FormItem>
-                  <textarea
-                    {...field}
-                    disabled={isLoading}
-                    placeholder="Speaker's Bio"
-                    className="rounded-none bg-[#0d230d] border border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 w-full p-2 min-h-[100px] resize-none"
-                    required
-                  />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            {/* Multiple honeypot fields - hidden from users but visible to bots */}
-            <FormField
-              control={form.control}
-              name="honeypot"
-              render={({ field }) => (
-                <FormItem>
-                  <input
-                    {...field}
-                    type="text"
-                    style={{ display: "none" }}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="honeypot2"
-              render={({ field }) => (
-                <FormItem>
-                  <input
-                    {...field}
-                    type="text"
-                    style={{ display: "none" }}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="honeypot3"
-              render={({ field }) => (
-                <FormItem>
-                  <input
-                    {...field}
-                    type="text"
-                    style={{ display: "none" }}
-                    tabIndex={-1}
-                    autoComplete="off"
-                    aria-hidden="true"
-                  />
-                </FormItem>
-              )}
-            />
-            <div className="flex flex-col md:flex-row w-full items-center justify-between gap-4 md:gap-0">
-              <Button
-                variant="green"
-                className="w-full md:w-40 font-bold text-white h-10"
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  "Submit"
+    <GoogleReCaptchaProvider
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+    >
+      <div className="w-full flex flex-col items-center justify-center p-4">
+        <div className="flex flex-col md:flex-row gap-4 mb-20 md:mb-40 border border-[#00F703]/30 bg-[#0fa711]/40 px-4 md:px-8 py-12 w-full">
+          <div className="flex flex-col gap-4 items-start w-full md:w-1/2">
+            <h3 className="text-stone-200 uppercase text-5xl font-medium font-Jersey15">
+              Suggest a Speaker
+            </h3>
+            <p className="w-full md:w-2/3 text-stone-200 font-semibold">
+              Have a speaker in mind for a future event? Suggest them here!
+            </p>
+          </div>
+          <Form {...form}>
+            <form
+              className="flex flex-col gap-4 mt-2 w-full md:w-1/2"
+              onSubmit={form.handleSubmit(handleSubmit)}
+            >
+              <FormField
+                control={form.control}
+                name="yourName"
+                render={({ field }) => (
+                  <FormItem>
+                    <Input
+                      {...field}
+                      disabled={isLoading}
+                      placeholder="Your Name"
+                      className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
+                      required
+                    />
+                    <FormMessage />
+                  </FormItem>
                 )}
-              </Button>
-              {message && (
-                <div
-                  className={`flex items-center text-sm justify-center md:justify-start gap-1 ${
-                    message.type === "success"
-                      ? "text-green-400"
-                      : "text-red-400"
-                  }`}
+              />
+              <FormField
+                control={form.control}
+                name="yourEmail"
+                render={({ field }) => (
+                  <FormItem>
+                    <Input
+                      {...field}
+                      disabled={isLoading}
+                      placeholder="Your Email"
+                      className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
+                      required
+                    />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="speakerName"
+                render={({ field }) => (
+                  <FormItem>
+                    <Input
+                      {...field}
+                      disabled={isLoading}
+                      placeholder="Speaker's Name"
+                      className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
+                      required
+                    />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="speakerEmail"
+                render={({ field }) => (
+                  <FormItem>
+                    <Input
+                      {...field}
+                      disabled={isLoading}
+                      placeholder="Speaker's Email"
+                      className="rounded-none bg-[#0d230d] border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 h-10 w-full"
+                      required
+                    />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="speakerBio"
+                render={({ field }) => (
+                  <FormItem>
+                    <textarea
+                      {...field}
+                      disabled={isLoading}
+                      placeholder="Speaker's Bio"
+                      className="rounded-none bg-[#0d230d] border border-[#0fa711]/40 text-stone-200 placeholder:text-[#0fa711]/40 w-full p-2 min-h-[100px] resize-none"
+                      required
+                    />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Multiple honeypot fields - hidden from users but visible to bots */}
+              <FormField
+                control={form.control}
+                name="honeypot"
+                render={({ field }) => (
+                  <FormItem>
+                    <input
+                      {...field}
+                      type="text"
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="honeypot2"
+                render={({ field }) => (
+                  <FormItem>
+                    <input
+                      {...field}
+                      type="text"
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="honeypot3"
+                render={({ field }) => (
+                  <FormItem>
+                    <input
+                      {...field}
+                      type="text"
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+                  </FormItem>
+                )}
+              />
+              <div className="flex flex-col md:flex-row w-full items-center justify-between gap-4 md:gap-0">
+                <Button
+                  variant="green"
+                  className="w-full md:w-40 font-bold text-white h-10"
+                  type="submit"
+                  disabled={isLoading}
                 >
-                  {message.type === "success" ? (
-                    <CheckIcon className="w-4 h-4" />
+                  {isLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
-                    <XIcon className="w-4 h-4" />
+                    "Submit"
                   )}
-                  {message.text}
-                </div>
-              )}
-            </div>
-          </form>
-        </Form>
+                </Button>
+                {message && (
+                  <div
+                    className={`flex items-center text-sm justify-center md:justify-start gap-1 ${
+                      message.type === "success"
+                        ? "text-green-400"
+                        : "text-red-400"
+                    }`}
+                  >
+                    {message.type === "success" ? (
+                      <CheckIcon className="w-4 h-4" />
+                    ) : (
+                      <XIcon className="w-4 h-4" />
+                    )}
+                    {message.text}
+                  </div>
+                )}
+              </div>
+            </form>
+          </Form>
+        </div>
       </div>
-    </div>
+    </GoogleReCaptchaProvider>
   );
 };
 
