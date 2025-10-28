@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon, Loader2, XIcon } from "lucide-react";
 import { Form, FormField, FormItem, FormMessage } from "./ui/form";
 import { generateBotProtectionData } from "../lib/botProtection";
+import { useGoogleReCaptcha } from "react19-google-recaptcha-v3";
 
 const formSchema = z.object({
   yourName: z.string().min(2, "Name must be at least 2 characters"),
@@ -26,10 +27,12 @@ const formSchema = z.object({
   screenResolution: z.string(),
   timezone: z.string(),
   language: z.string(),
+  captchaToken: z.string().optional(), // reCAPTCHA token
 });
 
 const SuggestComponent = () => {
   const [formStartTime] = useState(Date.now());
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,6 +52,7 @@ const SuggestComponent = () => {
       screenResolution: "",
       timezone: "",
       language: "",
+      captchaToken: "",
     },
   });
 
@@ -73,8 +77,27 @@ const SuggestComponent = () => {
     try {
       setIsLoading(true);
 
-      // Update timestamp before sending
+      // Execute reCAPTCHA
+      if (!executeRecaptcha) {
+        setMessage({
+          text: "reCAPTCHA not available. Please refresh the page and try again.",
+          type: "error",
+        });
+        return;
+      }
+
+      const captchaToken = await executeRecaptcha("suggest_speaker");
+      if (!captchaToken) {
+        setMessage({
+          text: "reCAPTCHA verification failed. Please try again.",
+          type: "error",
+        });
+        return;
+      }
+
+      // Update timestamp and captcha token before sending
       values.timestamp = Date.now();
+      values.captchaToken = captchaToken;
 
       const response = await fetch("/api/suggest-speaker", {
         method: "POST",
