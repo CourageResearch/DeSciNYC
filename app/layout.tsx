@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import TopNav from "@/components/TopNav";
-import { GoogleReCaptchaProvider } from "react19-google-recaptcha-v3";
 
 export const metadata: Metadata = {
   title: {
@@ -19,16 +18,12 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleReCaptchaProvider
-        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+      <body
+        className={`font-PF-Videotext antialiased bg-black text-white w-full min-h-screen`}
       >
-        <body
-          className={`font-PF-Videotext antialiased bg-black text-white w-full min-h-screen`}
-        >
-          <TopNav />
-          {children}
-        </body>
-      </GoogleReCaptchaProvider>
+        <TopNav />
+        {children}
+      </body>
     </html>
   );
 }
