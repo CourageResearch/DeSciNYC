@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { detectBot, BotProtectionData } from "../../../lib/botProtection";
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,13 +10,78 @@ export async function POST(req: NextRequest) {
       speakerEmail,
       speakerBio,
       honeypot,
+      honeypot2,
+      honeypot3,
+      timestamp,
+      formStartTime,
+      userAgent,
+      referrer,
+      screenResolution,
+      timezone,
+      language,
     } = await req.json();
 
-    // Check honeypot field - if it has any value, it's likely a bot
-    if (honeypot && honeypot.trim() !== "") {
-      console.log("Bot detected via honeypot field");
+    // Comprehensive bot detection
+    const botData: BotProtectionData = {
+      honeypot: honeypot || "",
+      honeypot2: honeypot2 || "",
+      honeypot3: honeypot3 || "",
+      timestamp: timestamp || Date.now(),
+      formStartTime: formStartTime || Date.now(),
+      userAgent: userAgent || "",
+      referrer: referrer || "",
+      screenResolution: screenResolution || "",
+      timezone: timezone || "",
+      language: language || "",
+    };
+
+    const botDetection = detectBot(botData);
+
+    if (botDetection.isBot) {
+      console.log("Bot detected:", botDetection.reasons);
       return NextResponse.json(
         { error: "Invalid submission" },
+        { status: 400 }
+      );
+    }
+
+    // Additional email domain validation
+    const botEmailDomains = [
+      "10minutemail.com",
+      "tempmail.org",
+      "guerrillamail.com",
+      "mailinator.com",
+      "throwaway.email",
+      "temp-mail.org",
+      "sharklasers.com",
+      "grr.la",
+      "guerrillamailblock.com",
+      "pokemail.net",
+      "spam4.me",
+      "bccto.me",
+      "chacuo.net",
+      "dispostable.com",
+      "mailnesia.com",
+      "mailcatch.com",
+      "inboxalias.com",
+      "mailmetrash.com",
+      "trashmail.net",
+      "spamgourmet.com",
+    ];
+
+    const yourEmailDomain = yourEmail.split("@")[1]?.toLowerCase();
+    const speakerEmailDomain = speakerEmail.split("@")[1]?.toLowerCase();
+
+    if (
+      botEmailDomains.includes(yourEmailDomain) ||
+      botEmailDomains.includes(speakerEmailDomain)
+    ) {
+      console.log("Bot email domain detected:", {
+        yourEmailDomain,
+        speakerEmailDomain,
+      });
+      return NextResponse.json(
+        { error: "Invalid email domain" },
         { status: 400 }
       );
     }

@@ -1,13 +1,14 @@
 "use client";
 
 import { z } from "zod";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon, Loader2, XIcon } from "lucide-react";
 import { Form, FormField, FormItem, FormMessage } from "./ui/form";
+import { generateBotProtectionData } from "../lib/botProtection";
 
 const formSchema = z.object({
   yourName: z.string().min(2, "Name must be at least 2 characters"),
@@ -16,9 +17,20 @@ const formSchema = z.object({
   speakerEmail: z.string().email(),
   speakerBio: z.string().min(10, "Please provide a brief bio of the speaker"),
   honeypot: z.string().optional(), // Honeypot field to catch bots
+  honeypot2: z.string().optional(), // Additional honeypot
+  honeypot3: z.string().optional(), // Third honeypot
+  timestamp: z.number(),
+  formStartTime: z.number(),
+  userAgent: z.string(),
+  referrer: z.string(),
+  screenResolution: z.string(),
+  timezone: z.string(),
+  language: z.string(),
 });
 
 const SuggestComponent = () => {
+  const [formStartTime] = useState(Date.now());
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,8 +40,28 @@ const SuggestComponent = () => {
       speakerEmail: "",
       speakerBio: "",
       honeypot: "",
+      honeypot2: "",
+      honeypot3: "",
+      timestamp: 0,
+      formStartTime: formStartTime,
+      userAgent: "",
+      referrer: "",
+      screenResolution: "",
+      timezone: "",
+      language: "",
     },
   });
+
+  // Initialize bot protection data when component mounts
+  useEffect(() => {
+    const botData = generateBotProtectionData();
+    form.setValue("formStartTime", botData.formStartTime || Date.now());
+    form.setValue("userAgent", botData.userAgent || "");
+    form.setValue("referrer", botData.referrer || "");
+    form.setValue("screenResolution", botData.screenResolution || "");
+    form.setValue("timezone", botData.timezone || "");
+    form.setValue("language", botData.language || "");
+  }, [form]);
 
   const [message, setMessage] = useState<{
     text: string;
@@ -40,6 +72,9 @@ const SuggestComponent = () => {
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsLoading(true);
+
+      // Update timestamp before sending
+      values.timestamp = Date.now();
 
       const response = await fetch("/api/suggest-speaker", {
         method: "POST",
@@ -168,10 +203,42 @@ const SuggestComponent = () => {
                 </FormItem>
               )}
             />
-            {/* Honeypot field - hidden from users but visible to bots */}
+            {/* Multiple honeypot fields - hidden from users but visible to bots */}
             <FormField
               control={form.control}
               name="honeypot"
+              render={({ field }) => (
+                <FormItem>
+                  <input
+                    {...field}
+                    type="text"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="honeypot2"
+              render={({ field }) => (
+                <FormItem>
+                  <input
+                    {...field}
+                    type="text"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="honeypot3"
               render={({ field }) => (
                 <FormItem>
                   <input
