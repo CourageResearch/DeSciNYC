@@ -22,6 +22,7 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "react-image-gallery": "^1.4.0",
+    "react19-google-recaptcha-v3": "^1.0.0",
     "resend": "^4.2.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",

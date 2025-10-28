@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
       screenResolution,
       timezone,
       language,
+      captchaToken,
     } = await req.json();
 
     // Comprehensive bot detection
@@ -41,6 +42,39 @@ export async function POST(req: NextRequest) {
       console.log("Bot detected:", botDetection.reasons);
       return NextResponse.json(
         { error: "Invalid submission" },
+        { status: 400 }
+      );
+    }
+
+    // Verify reCAPTCHA token
+    if (!captchaToken) {
+      console.log("Missing reCAPTCHA token");
+      return NextResponse.json(
+        { error: "reCAPTCHA verification required" },
+        { status: 400 }
+      );
+    }
+
+    const captchaResponse = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY!,
+          response: captchaToken,
+        }),
+      }
+    );
+
+    const captchaResult = await captchaResponse.json();
+
+    if (!captchaResult.success) {
+      console.log("reCAPTCHA verification failed:", captchaResult);
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed" },
         { status: 400 }
       );
     }
